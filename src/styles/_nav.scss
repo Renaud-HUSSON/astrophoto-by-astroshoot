@@ -1,0 +1,250 @@
+$nav-height: 7vh;
+
+nav {
+  // Primary nav 
+  .primary-nav {
+    padding: 0rem 0.5rem;
+    width: 100%;
+    height: $nav-height;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba($color: $black, $alpha: 0.25) 0px 3px 25px;
+  
+    .left-side {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $white;
+
+      > * {
+        padding: 0rem 0.5rem;
+      }
+
+      img {
+        width: 40px;
+        cursor: pointer;
+      }
+
+      p {
+        color: $blue;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+    }
+
+    .right-side {
+
+      ul {
+        display: flex;
+
+        li {
+          cursor: pointer;
+          list-style: none;
+          padding: 1rem 1.5rem;
+          color: $blue;
+        }
+      }
+    }
+  }
+
+  // Secondary nav containing images categories
+  .secondary-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 20%;
+    background: $white;
+    z-index: 10;
+    box-shadow: rgba($color: $black, $alpha: 0.25) 3px 0px 25px;
+    overflow: auto;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: 0.4s ease;
+
+    .header {
+      margin: 0rem 1.5rem;
+      height: $nav-height + 2vh;
+      display: flex;
+      align-items: center;
+
+      p {
+        flex: 1;
+        text-align: center;
+        color: $blue;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+    }
+
+    .image-categories {
+      .image-categorie {
+        cursor: pointer;
+        display: flex;
+        padding: 1.5rem;
+        justify-content: space-between;
+        align-items: center;
+        color: $blue;
+        font-size: 1.2rem;
+        transition: 0.2s;
+
+        &:hover {
+          background: #F6F6F6;
+        }
+
+        li {
+          list-style: none;
+        }
+      }
+    }
+
+    .icon {
+      cursor: pointer;
+      color: $blue;
+    }
+
+    overflow-x: hidden;
+  }
+
+  .active {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+
+  .burger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    
+    div {
+      width: 30px;
+      height: 5px;
+      background: $blue;
+      margin: 0.15rem;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $blue;
+  }
+}
+
+// Scrollbar
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparant;
+}
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}
+
+// Desktop
+@media screen and (max-width: 1200px){
+  nav {
+    .primary-nav {
+      .left-side {
+        p {
+          font-size: 0.9rem;
+        }
+      }
+      .right-side {
+        ul {
+          li {
+            padding: 1rem 0.5rem;
+          }
+        }
+      }
+    }
+    .secondary-nav {
+      width: 30%;
+    }
+  }
+}
+
+// Tablets
+@media screen and (max-width: 991px){
+  nav {
+    .primary-nav {
+      padding: 0rem 0.5rem;
+
+      .left-side {
+        img {
+          display: none;
+        }
+        p {
+          font-size: 0.8rem;
+        }
+        > * {
+          margin: 0rem 0.25rem;
+        }
+      }
+    }
+    .secondary-nav {
+      width: 35%;
+    }
+  }
+}
+
+// Phones
+@media screen and (max-width: 768px){
+  nav {
+    .primary-nav {
+      padding: 0;
+      flex-direction: column;
+
+      .left-side {
+        height: $nav-height;
+        width: 100%;
+        justify-content: flex-start;
+        z-index: 10;
+        box-shadow: rgba($color: $black, $alpha: 0.25) 0px 3px 25px;
+        
+        img {
+          display: block;
+        }
+
+        > * {
+          margin: 0rem 1rem;
+        }
+      }
+      .right-side {
+        position: absolute;
+        left: 0;
+        height: 100vh;
+        transform: translateX(-100%);
+        opacity: 0;
+        z-index: 2;
+        width: 100%;
+        transition: 0.5s ease;
+        background: $white;
+
+        ul {
+          padding-top: $nav-height;
+          flex-direction: column;
+
+          li {
+            padding: 1.2rem 2rem;
+          }
+        }
+      }
+
+      .active {
+        opacity: 1;
+        transform: translateX(0%);
+      }
+    }
+    .secondary-nav {
+      width: 100%;
+    }  
+  }
+}

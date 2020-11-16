@@ -10,7 +10,7 @@ const SecondaryNav = ({nav, handleNav, closeNav}) => {
     </div>
     <ul className="image-categories">
       {/* In the future, we're gonna fetch different categories from a database, and map over it */}
-      <Link to="/">
+      <Link to="/nebuleuses">
         <div onClick={closeNav} className="image-categorie">
           <li className="categorie">Les Nébuleuses</li>
           <FontAwesomeIcon icon={faChevronRight} />

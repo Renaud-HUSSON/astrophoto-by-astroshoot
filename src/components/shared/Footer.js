@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="contact">
         <h3>Me contacter</h3>
         <p>maxime.degraeve@astrophoto-amateur.fr</p>
-        <p><a href="https://www.instagram.com/astroshoot_/" target="_blank"><FontAwesomeIcon icon={faInstagram}/>Instagram</a></p>
+        <p><a href="https://www.instagram.com/astroshoot_/" target="_blank"><FontAwesomeIcon icon={faInstagram}/> Instagram</a></p>
       </div>
     </div>
   </footer>

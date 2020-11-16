@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import PrimaryNav from '../Nav/PrimaryNav'
 import SecondaryNav from '../Nav/SecondaryNav'
 import { useCallback } from 'react'
+import { useLocation } from 'react-router-dom'
 
 const Nav = () => {
   //States
@@ -19,8 +20,14 @@ const Nav = () => {
     setPrimaryNav(false)
   }
 
+  const location = useLocation()
+
+  useEffect(() => {
+    closeNav()
+  }, [location])
+
   return <nav>
-    <PrimaryNav handleNav={handleNav} primaryNav={primaryNav} setPrimaryNav={setPrimaryNav} closeNav={closeNav}/>
+    <PrimaryNav handleNav={handleNav} primaryNav={primaryNav} setPrimaryNav={setPrimaryNav}/>
     <SecondaryNav nav={nav} handleNav={handleNav} closeNav={closeNav}/>
   </nav>
 }

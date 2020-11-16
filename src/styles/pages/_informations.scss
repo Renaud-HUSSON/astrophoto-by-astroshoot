@@ -1,0 +1,40 @@
+.informations-container {
+  padding: 2rem;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    margin: 1rem 0rem;
+  }
+  a {
+    text-decoration: none;
+    color: $black;
+  }
+  div {
+    margin-bottom: 1.5rem;
+  }
+  .about {
+    
+  }
+  .contact {
+    
+  }
+  .links-container {
+    h3 {
+      font-weight: 400;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    ul {
+      li {
+        list-style: none;
+        margin-top: 0.5rem;
+        a {
+          color: $gray;
+        }
+      }
+    }
+  }
+}

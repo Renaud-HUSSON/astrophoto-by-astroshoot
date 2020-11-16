@@ -4,12 +4,26 @@ $blue: #20A6FF;
 $gray: #888D93;
 $lightgray: #F9F9F9;
 $white: #FFFFFF;
+$nav-height: 7vh;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Montserrat, 'sans serif';
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+
+#page-container {
+  min-height: 100vh - $nav-height;
 }
 
 h1, h2, h3, h4, p {
@@ -19,4 +33,9 @@ h1, h2, h3, h4, p {
 // import of partials
 @import './nav';
 @import './pages/accueil';
-@import './_footer.scss'
+@import './_footer.scss';
+@import './pages/categorie';
+@import './pages/materiel';
+@import './pages/informations';
+@import './pages/imageDetails';
+@import './modal';

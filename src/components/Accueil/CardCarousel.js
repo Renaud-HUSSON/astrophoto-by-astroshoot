@@ -1,38 +1,26 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import { useCallback, useEffect, useRef, useState } from 'react'
+//Components
 import Card from '../shared/Card'
+import ScrollContainer from 'react-indiana-drag-scroll'
+//Framer Motion
+import {motion} from "framer-motion"
+import { Link } from 'react-router-dom'
 
 const CardCarousel = ({cards}) => {
-  const [x, setX]= useState(0)
-  const carouselContainer = useRef(null)
-  const carouselItem = useRef(null)
-  
-  const goLeft = () => {
-    x === 0 ? setX((cards.length - Math.floor(carouselContainer.current.offsetWidth / carouselItem.current.offsetWidth)) * -100) : setX(x => x + 100)
-  }
-
-  const goRight = useCallback(() => {
-    x === -100 * (cards.length - Math.floor(carouselContainer.current.offsetWidth / carouselItem.current.offsetWidth)) ? setX(0) : setX(x => x - 100)
-  }, [cards.length, x])
-
-  useEffect(() => {
-    const timeout = setInterval(goRight, 4000)
-    return () => clearInterval(timeout)
-  }, [x, goRight])
-
-  return <div className="card-carousel-container" ref={carouselContainer}> 
-    <div className="carousel">
+  return <div className="card-carousel-container"> 
+    <ScrollContainer hideScrollbars={false} className="carousel">
       {cards.map((card, i) => {
+        const variants = {
+          visible: {opacity: 1, y: 0, transition: {ease: "easeIn", duration: 0.3, delay: 0.3 + i*0.1}},
+          hidden: {opacity: 0, y: 150}
+        }
+
         return (
-          <div key={i} className="carousel-item" style={{transform: `translateX(${x}%)`}} ref={carouselItem}>
+          <motion.div variants={variants} animate="visible" initial="hidden" key={i} className="carousel-item">
             <Card src={card.src} title={card.title} content={card.content}/>
-          </div>
+          </motion.div>
         )
       })}
-    </div>
-    <FontAwesomeIcon onClick={goLeft} className="goLeft" icon={faChevronLeft} size="2x"/>
-    <FontAwesomeIcon onClick={goRight} className="goRight" icon={faChevronRight} size="2x"/>
+    </ScrollContainer>
   </div>
 }
 

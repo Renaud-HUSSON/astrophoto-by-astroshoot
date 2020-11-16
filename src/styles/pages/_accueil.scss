@@ -16,9 +16,9 @@ $image-carousel-width-sm: 90vw;
     overflow: hidden;
   
     .carousel-item {
+      transition: 0.6s ease-out ;
       width: 100%;
       height: 100%;
-      transition: 0.4s;
     }
   }
   
@@ -26,7 +26,7 @@ $image-carousel-width-sm: 90vw;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: $gray; 
+    color: $white; 
     cursor: pointer;
   }
   
@@ -62,6 +62,7 @@ $image-carousel-width-sm: 90vw;
       width: $image-carousel-width-lg;
       height: 9/16 * $image-carousel-width-lg;
       overflow: hidden;
+      box-shadow: $black 0px 6px 25px;
     }
   }
   
@@ -69,57 +70,53 @@ $image-carousel-width-sm: 90vw;
     height: 20vh;
     width: 80vw;
     position: relative;
-    
-    .goLeft {
-      left: -30px;
-      @extend %btn-styles; 
-      color: $black; 
-    }
-    
-    .goRight {
-      right: -30px;
-      @extend %btn-styles;
-      color: $black; 
-    }
 
     .carousel {
-      .card {
+      overflow-x: scroll;
+      padding-bottom: 0.5rem;
+      
+      .carousel-item {
+        transition: initial;
         margin: 0rem 1rem;
-        height: 20vh;
-  
-        .card-header {
-          height: 15vh;
-          width: calc((16/9)*15vh);
-          
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .card {
+          height: 20vh;
+          .card-header {
+            height: 15vh;
+            width: calc((16/9)*15vh);
+            
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
           }
-        }
-  
-        p {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          height: 5vh;
-          background: $black;
-          color: white;
-          transition: 0.2s;
-        }
-
-        a {
-          text-decoration: none;
-        }
-
-        &:hover {
+    
           p {
-            background: $white;
-            color: $black;
-            border: 1px solid $black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 5vh;
+            background: $black;
+            color: white;
+            transition: 0.3s;
+          }
+  
+          a {
+            text-decoration: none;
+          }
+  
+          &:hover {
+            p {
+              border: 1px solid $black;
+              background: $white;
+              color: $black;
+            }
           }
         }
+      }
+      .carousel-item:first-of-type {
+        margin-left: 0;
       }
     }
 
@@ -142,6 +139,7 @@ $image-carousel-width-sm: 90vw;
       }
     }
     .card-carousel-container {
+      width: $image-carousel-width-sm;
       margin: 2rem 0rem;
     }
   }

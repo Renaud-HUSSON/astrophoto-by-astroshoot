@@ -1,0 +1,46 @@
+$category-width: 80vw;
+
+.categorie-container {
+  height: 100%;
+  h1 {
+    font-weight: 400;
+    font-size: 2.2rem;
+    margin: 5vh (100vw - $category-width) /2;
+  }
+  .categorie-images {
+    margin: auto;
+    margin-bottom: 2rem;
+    width: $category-width;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4vh 3vw;
+
+    .image-container {
+      text-decoration: none;
+      
+      img {
+        width: 100%;
+      }
+      p {
+        text-align: center;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .categorie-container {
+    .categorie-images {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .categorie-container {
+    .categorie-images {
+      grid-template-columns: 1fr;
+    }
+  }
+}

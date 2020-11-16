@@ -1,0 +1,38 @@
+body[modal-opened="true"]{
+  overflow: hidden;
+}
+
+.modal-container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: 0.5s ease;
+  background: rgba(255, 255, 255, 0.7);
+
+  .modal {
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+
+    > * {
+        position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+}
+
+.modal-active {
+  opacity: 1;
+  transform: translateX(0%);
+}

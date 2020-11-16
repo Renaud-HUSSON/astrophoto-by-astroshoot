@@ -1,5 +1,5 @@
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { useCallback, useEffect, useState } from 'react'
 
 const ImageCarousel = ({images}) => {
@@ -25,8 +25,8 @@ const ImageCarousel = ({images}) => {
           <img key={index} className="carousel-item" style={{transform: `translateX(${x}%)`}} src={item.src} alt={item.title} />
       )
     })}
-    {/* <FontAwesomeIcon onClick={goLeft} className="goLeft" icon={faChevronLeft} size="2x"/>
-    <FontAwesomeIcon onClick={goRight} className="goRight" icon={faChevronRight} size="2x"/> */}
+    <FontAwesomeIcon onClick={goLeft} className="goLeft" icon={faChevronLeft} size="2x"/>
+    <FontAwesomeIcon onClick={goRight} className="goRight" icon={faChevronRight} size="2x"/>
   </div>
 }
 

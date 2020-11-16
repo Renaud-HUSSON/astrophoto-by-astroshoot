@@ -1,5 +1,3 @@
-$nav-height: 7vh;
-
 nav {
   // Primary nav 
   .primary-nav {
@@ -38,11 +36,19 @@ nav {
       ul {
         display: flex;
 
+        .image-categorie {
+          padding: 0rem 1.5rem;
+        }
         li {
           cursor: pointer;
           list-style: none;
-          padding: 1rem 1.5rem;
           color: $blue;
+
+          a {
+            width: 100%;
+            height: 100%;
+            padding: 1rem 1.5rem;
+          }
         }
       }
     }
@@ -54,7 +60,7 @@ nav {
     top: 0;
     left: 0;
     height: 100%;
-    width: 20%;
+    width: 25%;
     background: $white;
     z-index: 10;
     box-shadow: rgba($color: $black, $alpha: 0.25) 3px 0px 25px;
@@ -137,7 +143,7 @@ nav {
   scrollbar-color: rgba(155, 155, 155, 0.5) transparant;
 }
 *::-webkit-scrollbar {
-  width: 5px;
+  height: 5px;
 }
 *::-webkit-scrollbar-track {
   background: transparent;
@@ -152,11 +158,6 @@ nav {
 @media screen and (max-width: 1200px){
   nav {
     .primary-nav {
-      .left-side {
-        p {
-          font-size: 0.9rem;
-        }
-      }
       .right-side {
         ul {
           li {
@@ -178,12 +179,6 @@ nav {
       padding: 0rem 0.5rem;
 
       .left-side {
-        img {
-          display: none;
-        }
-        p {
-          font-size: 0.8rem;
-        }
         > * {
           margin: 0rem 0.25rem;
         }
@@ -214,7 +209,7 @@ nav {
         }
 
         > * {
-          margin: 0rem 1rem;
+          margin: 0;
         }
       }
       .right-side {
@@ -234,6 +229,10 @@ nav {
 
           li {
             padding: 1.2rem 2rem;
+          }
+
+          .image-categorie {
+            padding: 1.2rem 3.5rem;
           }
         }
       }

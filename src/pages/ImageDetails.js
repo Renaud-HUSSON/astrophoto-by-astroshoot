@@ -1,7 +1,7 @@
 //Components
 import {Modal, CloseModal} from '../components/shared/Modal'
 // import { useParams } from "react-router-dom"
-import image from '../images/nebuleuses/M8_Lagoon_Nebula.png'
+import image from '../images/nebuleuses/NGC6992-30-05-2020.jpg'
 //animation
 import {motion} from "framer-motion"
 import {fadeIn} from '../animations/fade'

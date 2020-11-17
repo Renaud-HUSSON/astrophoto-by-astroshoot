@@ -16,7 +16,7 @@ const Accueil = () => {
   let imagev3 = {title: "Nébuleuse 3", src:image3}
   const images = [imagev1, imagev2, imagev3]
 
-  const fadeAnim = fadeIn(0.5);
+  const fadeAnim = fadeIn();
 
   return <motion.div variants={fadeAnim} animate="visible" initial="visible" exit="exit" className="accueil">
     <div className="upper-content">

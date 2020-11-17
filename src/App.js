@@ -5,6 +5,7 @@ import Categorie from './pages/Categorie'
 import ImageDetails from './pages/ImageDetails'
 import Materiel from './pages/Materiel'
 import Informations from './pages/Informations'
+import Calculs from './pages/Calculs'
 import Footer from './components/shared/Footer'
 //Animation
 import {AnimatePresence} from 'framer-motion'
@@ -35,6 +36,9 @@ function App() {
             </Route>
             <Route path="/informations" exact>
               <Informations />
+            </Route>
+            <Route path="/calculs" exact>
+              <Calculs />
             </Route>
           </Switch>
         </AnimatePresence>

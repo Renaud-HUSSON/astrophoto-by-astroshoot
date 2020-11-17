@@ -1,0 +1,46 @@
+.calcul-container {
+  display: flex;
+  padding: 2rem 2rem;
+
+  .input-container {
+    margin: 1rem 0rem;
+    width: 40vw;
+
+    input {
+      width: 100%;
+      margin: 0.5rem 0rem;
+      padding-left: 0.5rem;
+      height: 2rem;
+    }
+  }
+
+  .calcul-read {
+    margin-left: 5vw;
+  }
+
+  .calcul-write {
+    margin-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 991px){
+  .calcul-container {
+    flex-direction:  column;
+
+    .input-container {
+      width: 60vw;
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .calcul-container {
+    padding: 0;
+    padding-top: 2rem;
+    flex-direction:  column;
+
+    .input-container {
+      width: 90vw;
+    }
+  }
+}

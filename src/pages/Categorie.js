@@ -5,7 +5,7 @@ import {motion} from "framer-motion"
 import {fadeIn} from '../animations/fade'
 
 const Categorie = ({categorie, title}) => {
-  const fadeAnim = fadeIn(0.5, 0.1)
+  const fadeAnim = fadeIn()
 
   return <motion.div variants={fadeAnim} animate="visible" initial="hidden" exit="exit" className="categorie-container">
     <h1>{title}</h1>

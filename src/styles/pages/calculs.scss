@@ -9,13 +9,21 @@
     input {
       width: 100%;
       margin: 0.5rem 0rem;
-      padding-left: 0.5rem;
+      padding: 0rem 0.5rem;
       height: 2rem;
+      border: none;
+      box-shadow: rgba($color: $black, $alpha: 0.3) 0px 1px 5px;
     }
   }
 
   .calcul-read {
     margin-left: 5vw;
+
+    div {
+      input {
+        background: #EEE;
+      }
+    }
   }
 
   .calcul-write {

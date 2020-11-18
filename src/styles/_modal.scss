@@ -11,7 +11,7 @@ body[modal-opened="true"]{
   opacity: 0;
   transform: translateX(100%);
   transition: 0.3s ease-out;
-  background: rgba($color: $blue, $alpha: 0.5);
+  background: rgba($color: $white, $alpha: 0.7);
 
   .modal {
     width: 90%;

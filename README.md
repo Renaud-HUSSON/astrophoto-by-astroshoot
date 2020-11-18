@@ -6,9 +6,10 @@ Astrophoto by AstroShoot si a website I'm rebuilding for a friend, which permits
 
 * Frontend:
 
-For the frontend, I'm using React as javascript framework (I'm new to this that's my first project with React)
+I'm using React as javascript framework (I'm new to this that's my first project with React)
 
 * Backend:
 
-For the backend, I'm using PHP, and MySQL as DBMS 
+I'm using PHP with a REST API, and MySQL as DBMS
+
 

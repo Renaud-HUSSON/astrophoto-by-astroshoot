@@ -19,7 +19,7 @@ class Image {
   }
 
   public function read(){
-    $query = 'SELECT * FROM ' . $this->table . ' WHERE categorie="' . $this->categorie . '"';
+    $query = 'SELECT * FROM ' . $this->table . ' WHERE categorie="' . $this->categorie . '" ORDER BY id DESC';
 
     $stmt = $this->conn->query($query);
 
@@ -36,6 +36,7 @@ class Image {
 
   public function create(){
     $query = 'INSERT INTO ' . $this->table . '(src, categorie, titre, details, description, infobox) VALUES (:src, :categorie, :titre, :details, :description, :infobox)';
+    $secondary_query = 'UPDATE categories SET number=number+1 WHERE nom="' . $this->categorie . '"';
 
     $req = $this->conn->prepare($query);
 
@@ -47,6 +48,8 @@ class Image {
       'description' => $this->description,
       'infobox' => $this->infobox
     ))){
+      $this->conn->exec($secondary_query);
+
       return true;
     }else{
       return false;
@@ -75,12 +78,15 @@ class Image {
 
   public function delete(){
     $query = 'DELETE FROM ' . $this->table . ' WHERE id=:id';
+    $secondary_query = 'UPDATE categories SET number=number-1 WHERE nom="' . $this->categorie . '"';
     
     $req = $this->conn->prepare($query);
     
     if($req->execute(array(
       'id' => $this->id
     ))){
+      $this->conn->exec($secondary_query);
+
       return true;
     }else{
       return false;

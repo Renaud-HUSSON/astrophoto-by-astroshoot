@@ -21,6 +21,7 @@ $image = new Image($db);
 
 //Verify params integrity & assign them to image object if valid
 $image->id = validate_param($_GET['id']);
+$image->categorie = validate_param($_GET['categorie']);
 
 if($image->delete()){
   echo json_encode(array('success' => 'L\'image a bien été supprimée'));

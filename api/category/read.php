@@ -38,7 +38,8 @@ if($num > 0){
     $category_item = array(
       'id' => $id,
       'titre' => $titre,
-      'nom' => $nom
+      'nom' => $nom,
+      'number' => $number
     );
 
     array_push($categories['data'], $category_item);

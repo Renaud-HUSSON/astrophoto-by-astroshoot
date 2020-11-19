@@ -9,6 +9,7 @@ class Category {
   public $id;
   public $titre;
   public $nom;
+  public $number;
 
   public function __construct($db) {
     $this->conn = $db;

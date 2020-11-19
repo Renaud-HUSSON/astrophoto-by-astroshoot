@@ -1,14 +1,19 @@
 //Components
 import {Modal, CloseModal} from '../components/shared/Modal'
-// import { useParams } from "react-router-dom"
-import image from '../images/nebuleuses/NGC6992-30-05-2020.jpg'
+import Loading from '../components/shared/Loading'
 //animation
 import {motion} from "framer-motion"
 import {fadeIn} from '../animations/fade'
 import { useState } from 'react'
+//Custom Hook to fetch data from an URL
+import useFetchData from '../components/shared/Hooks/useFetchData'
+import { useParams } from "react-router-dom"
 
 const ImageDetails = () => {
-  // const imageid = useParams().id
+  const params = useParams()
+
+  const imageData = useFetchData(`http://localhost/astroshoot/api/images/read_single.php?id=${params.id}&category=${params.categorie}`)
+
   const pageAnimation = fadeIn()
   const [modalOpened, setModalOpened] = useState(false)
 
@@ -20,38 +25,34 @@ const ImageDetails = () => {
     setModalOpened(true)
   }
 
-  return <motion.div variants={pageAnimation} animate="visible" initial="hidden" exit="exit" className="image-details">
-    <h1>Titre de l'image</h1>
+  const image = !imageData[1] ? imageData[0].data[0]: ''
+
+  return !imageData[1] 
+  ? <motion.div variants={pageAnimation} animate="visible" initial="hidden" exit="exit" className="image-details">
+    <h1>{image.titre}</h1>
     <div className="image-container">
       <div className="image">
-        <img onClick={openModal} src={image} alt="nébuleuse"/>
+        <img onClick={openModal} src={`https://astrophoto-amateur.fr/${image.src}`} alt={image.titre}/>
         <button onClick={openModal} className="open-modal">Afficher l'image en grand</button>
       </div>
       <div className="image-informations-container">
         <h1>Informations</h1>
         <p className="image-informations">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero, a soluta at aut voluptatum ab molestiae iste quisquam nobis illo et repellat, ducimus nulla voluptates provident debitis. Debitis, fugiat veniam?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum placeat quod enim. Est fuga quod deleniti aperiam quisquam? Aliquam tempore voluptatem voluptates autem placeat, rem labore alias aut? Consequatur, dignissimos.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quis, beatae qui consequuntur architecto expedita quae aperiam ipsam nobis mollitia odio molestias in eius odit nihil ex id praesentium totam.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quis, beatae qui consequuntur architecto expedita quae aperiam ipsam nobis mollitia odio molestias in eius odit nihil ex id praesentium totam.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quis, beatae qui consequuntur architecto expedita quae aperiam ipsam nobis mollitia odio molestias in eius odit nihil ex id praesentium totam.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quis, beatae qui consequuntur architecto expedita quae aperiam ipsam nobis mollitia odio molestias in eius odit nihil ex id praesentium totam.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quis, beatae qui consequuntur architecto expedita quae aperiam ipsam nobis mollitia odio molestias in eius odit nihil ex id praesentium totam.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quis, beatae qui consequuntur architecto expedita quae aperiam ipsam nobis mollitia odio molestias in eius odit nihil ex id praesentium totam.
         </p>
       </div>
     </div>
     <div className="image-details-container">
       <h1>Détails</h1>
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero, a soluta at aut voluptatum ab molestiae iste quisquam nobis illo et repellat, ducimus nulla voluptates provident debitis. Debitis, fugiat veniam?
+        {image.details}
       </p>
     </div>
     <Modal modalOpened={modalOpened} setModalOpened={setModalOpened}>
-      <img onClick={cancelClick} src={image} alt="Nébuleuse"/>
+      <img onClick={cancelClick} src={`https://astrophoto-amateur.fr/${image.src}`} alt="Nébuleuse"/>
       <CloseModal setModalOpened={setModalOpened}>X</CloseModal>
     </Modal>
   </motion.div>
+  : <Loading />
 }
 
 export default ImageDetails

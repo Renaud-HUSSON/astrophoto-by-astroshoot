@@ -12,9 +12,13 @@ import {AnimatePresence} from 'framer-motion'
 //Other
 import {Switch, Route, useLocation} from 'react-router-dom'
 import './styles/app.scss'
+//Custom Hook to fetch data from an URL
+import useFetchData from './components/shared/Hooks/useFetchData'
 
 function App() {
   const location = useLocation()
+
+  const categories = useFetchData('http://localhost/astroshoot/api/category/read.php')
 
   return (
     <div className="App">
@@ -25,10 +29,16 @@ function App() {
             <Route path="/" exact>
               <Accueil />
             </Route>
-            <Route path="/nebuleuses" exact>
-              <Categorie categorie="nebuleuses" title="Les Nébuleuses"/>
-            </Route>
-            <Route path="/nebuleuses/:id" exact>
+            {
+              !categories[1] 
+              ? categories[0]['data'].map((categorie) => {
+                  return <Route key={categorie.id} path={`/${categorie.nom}`} exact>
+                    <Categorie categorie={categorie.nom} title={categorie.titre}/>
+                  </Route>
+                })
+              : ''
+            }
+            <Route path="/:categorie/:id" exact>
               <ImageDetails />
             </Route>
             <Route path="/materiel" exact>

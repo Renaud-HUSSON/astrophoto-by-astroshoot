@@ -9,12 +9,16 @@ import image3 from '../images/nebuleuses/M8_Lagoon_Nebula.png'
 //Animation
 import {motion} from 'framer-motion'
 import {fadeIn} from '../animations/fade'
+//Custom Hook to fetch data from an URL
+import useFetchData from '../components/shared/Hooks/useFetchData'
 
 const Accueil = () => {
   let imagev1 = {title: "Nébuleuse 1", src:image1}
   let imagev2 = {title: "Nébuleuse 2", src:image2}
   let imagev3 = {title: "Nébuleuse 3", src:image3}
   const images = [imagev1, imagev2, imagev3]
+
+  const categories = useFetchData('http://localhost/astroshoot/api/category/read.php')
 
   const fadeAnim = fadeIn();
 

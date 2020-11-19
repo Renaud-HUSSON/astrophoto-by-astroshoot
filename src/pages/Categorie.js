@@ -1,23 +1,29 @@
+//Components
 import ImageContainer from '../components/Categorie/ImageContainer'
-import image from '../images/nebuleuses/NGC6992-30-05-2020.jpg'//Framer Motion
+import Loading from '../components/shared/Loading'
 //Animations
 import {motion} from "framer-motion"
 import {fadeIn} from '../animations/fade'
+//Custom Hook to fetch data from an URL
+import useFetchData from '../components/shared/Hooks/useFetchData'
 
 const Categorie = ({categorie, title}) => {
   const fadeAnim = fadeIn()
 
+  const images = useFetchData(`http://localhost/astroshoot/api/images/read.php?category=${categorie}`)
+
   return <motion.div variants={fadeAnim} animate="visible" initial="hidden" exit="exit" className="categorie-container">
     <h1>{title}</h1>
     <div className="categorie-images">
-      <ImageContainer title="Nébuleuse" src={image}/>
-      <ImageContainer title="Nébuleuse" src={image}/>
-      <ImageContainer title="Nébuleuse" src={image}/>
-      <ImageContainer title="Nébuleuse" src={image}/>
-      <ImageContainer title="Nébuleuse" src={image}/>
-      <ImageContainer title="Nébuleuse" src={image}/>
-      <ImageContainer title="Nébuleuse" src={image}/>
-      <ImageContainer title="Nébuleuse" src={image}/>
+      {
+        !images[1]
+        ? images[0].data.map((image) => {
+          const src = image.src.replace(/^(.*)([.](jpg|gif|png))$/, "$1-thumbnail$2")
+
+          return <ImageContainer key={image.id} categorie={image.categorie} id={image.id} title={image.titre} src={`https://astrophoto-amateur.fr/${src}`}/>
+        })
+        : <Loading />
+      }
     </div>
   </motion.div>
 }

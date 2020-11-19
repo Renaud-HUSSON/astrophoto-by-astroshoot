@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
-const ImageContainer = ({title, src}) => {
-  return <Link to="/nebuleuses/54" className="image-container">
+const ImageContainer = ({title, src, id, categorie}) => {
+
+  return <Link to={`/${categorie}/${id}`} className="image-container">
       <img src={src} alt={title}/>
       <p>{title}</p>
     </Link>

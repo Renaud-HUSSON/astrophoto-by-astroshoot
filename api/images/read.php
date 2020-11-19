@@ -1,13 +1,14 @@
 <?php 
 
 //Headers
-header('Access-Control-Allow-Origin: localhost:3000');
+header('Access-Control-Allow-Origin: http://localhost:3000');
 header('Content-Type: application/json');
 
 //Includes
 include_once '../../config/Database.php';
 include_once '../../models/Image.php';
 include_once '../../utils/HTTPStatus.php';
+include_once '../../utils/validate_param.php';
 
 //Instantiate & Connnect DB
 $database = new Database();
@@ -17,16 +18,15 @@ $db = $database->connect();
 $image = new Image($db);
 
 //Verify GET params
-if(isset($_GET['category']) && !empty($_GET['category'])){
-  $image->category = strip_tags($_GET['category']);
-}else{
+if(sizeof($_GET) != 1){
   HTTPStatus(400);
-  echo json_encode(array('message' => 'No required parameters found'));
+  echo json_encode(array('error' => 'The API requires no parameter'));
   die();
 }
+$image->categorie = validate_param($_GET['category']);
 
 //Fetch images
-$result = $image->read($category);
+$result = $image->read();
 $num = $result->rowCount();
 
 $images_arr = array();
@@ -41,7 +41,7 @@ if($num > 0){
     $image_item = array(
       'id' => $id,
       'src' => $src,
-      'categorie' => $category,
+      'categorie' => $categorie,
       'titre' => $titre,
       'details' => $details,
       'description' => $infobox

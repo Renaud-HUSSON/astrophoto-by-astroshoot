@@ -18,16 +18,16 @@ class Image {
     $this->conn = $db;
   }
 
-  public function read($categorie){
-    $query = 'SELECT * FROM ' . $this->table . ' WHERE categorie="' . $categorie . '"';
+  public function read(){
+    $query = 'SELECT * FROM ' . $this->table . ' WHERE categorie="' . $this->categorie . '"';
 
     $stmt = $this->conn->query($query);
 
     return $stmt;
   }
 
-  public function read_single($id, $categorie){
-    $query = 'SELECT * FROM ' . $this->table . ' WHERE id=' . $id . ' AND categorie="' . $categorie . '"';
+  public function read_single(){
+    $query = 'SELECT * FROM ' . $this->table . ' WHERE id=' . $this->id . ' AND categorie="' . $this->categorie . '"';
 
     $stmt = $this->conn->query($query);
 

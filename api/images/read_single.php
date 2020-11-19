@@ -1,7 +1,7 @@
 <?php 
 
 //Headers
-header('Access-Control-Allow-Origin: localhost:3000');
+header('Access-Control-Allow-Origin: http://localhost:3000');
 header('Content-Type: application/json');
 
 //Includes
@@ -22,7 +22,7 @@ $image->id = validate_param($_GET['id']);
 $image->categorie = validate_param($_GET['category']);
 
 //Fetch images
-$result = $image->read_single($id, $category);
+$result = $image->read_single();
 $num = $result->rowCount();
 
 $image_arr = array();

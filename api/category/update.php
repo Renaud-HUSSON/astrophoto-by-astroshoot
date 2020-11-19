@@ -1,7 +1,7 @@
 <?php 
 
 //Headers
-header('Access-Control-Allow-Origin: localhost:3000');
+header('Access-Control-Allow-Origin: http://localhost:3000');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Method: PUT');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');

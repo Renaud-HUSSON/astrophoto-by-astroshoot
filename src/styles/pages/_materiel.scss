@@ -9,15 +9,15 @@
   .materiel-item-container {
     margin: 2rem 0rem;
     .materiel-item {
-      line-height: 2.5rem;
-      white-space: nowrap;
+      margin: 1rem 0rem;
 
       p {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
+        margin: 5px 0px;
       }
       input {
-        width: 40vw;
-        height: 2rem;
+        width: 50vw;
+        height: 2.2rem;
         background: #EEE;
         padding-left: 0.5rem;
         color: $gray;
@@ -41,9 +41,6 @@
         background: $white;
         color: $blue;
         border: 1px solid $blue;
-      }
-      a {
-  
       }
     }
   }
@@ -69,6 +66,10 @@
     .materiel-item-container{
       .materiel-item {
         width: 100%;
+
+        input {
+          max-width: 40vw;
+        }
       }
     }
   }

@@ -2,6 +2,7 @@
 import AccueilText from '../components/Accueil/AccueilText'
 import ImageCarousel from '../components/Accueil/ImageCarousel'
 import CardCarousel from '../components/Accueil/CardCarousel'
+import Loading from '../components/shared/Loading'
 // Images
 import image1 from '../images/nebuleuses/NGC6992-30-05-2020.jpg'
 import image2 from '../images/nebuleuses/NGC6992-22-05-2020.jpg'
@@ -29,18 +30,15 @@ const Accueil = () => {
         <ImageCarousel images={images}/>
       </motion.div>
     </div>
-    <CardCarousel cards={[
-      {src:imagev1.src, title:imagev1.title, content:"Les Nébuleuses | 28 photos"},
-      {src:imagev2.src, title:imagev2.title, content:"Les Nébuleuses | 28 photos"},
-      {src:imagev3.src, title:imagev3.title, content:"Les Nébuleuses | 28 photos"},
-      {src:imagev1.src, title:imagev1.title, content:"Les Nébuleuses | 28 photos"},
-      {src:imagev2.src, title:imagev2.title, content:"Les Nébuleuses | 28 photos"},
-      {src:imagev3.src, title:imagev3.title, content:"Les Nébuleuses | 28 photos"},
-      {src:imagev1.src, title:imagev1.title, content:"Les Nébuleuses | 28 photos"},
-      {src:imagev2.src, title:imagev2.title, content:"Les Nébuleuses | 28 photos"},
-      {src:imagev3.src, title:imagev3.title, content:"Les Nébuleuses | 28 photos"},
-      {src:imagev1.src, title:imagev1.title, content:"Les Nébuleuses | 28 photos"},
+    {!categories[1]
+    ?<CardCarousel cards={[
+      categories[0].data.map(categorie => {
+        return {src:`https://astrophoto-amateur.fr/${categorie.src.replace(/^(.*)([.](jpg|gif|png))$/, "$1-thumbnail$2")}`, title:categorie.titre, content:`${categorie.titre} | ${categorie.number} photos`, nom: categorie.nom}
+      })
+      
     ]}/>
+    : ''
+  }
   </motion.div>
 }
 

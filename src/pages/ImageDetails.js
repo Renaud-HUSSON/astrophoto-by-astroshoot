@@ -1,6 +1,7 @@
 //Components
 import {Modal, CloseModal} from '../components/shared/Modal'
 import Loading from '../components/shared/Loading'
+import ImageInfobox from '../components/ImageDetails/ImageInfobox'
 //animation
 import {motion} from "framer-motion"
 import {fadeIn} from '../animations/fade'
@@ -37,8 +38,13 @@ const ImageDetails = () => {
       </div>
       <div className="image-informations-container">
         <h1>Informations</h1>
-        <p className="image-informations">
-        </p>
+        <div className="image-informations">
+          {
+            image.infobox !== "" 
+            ? <ImageInfobox nom={image.infobox} image={image.titre} />
+          : <p>{image.description}</p>
+          }
+        </div>
       </div>
     </div>
     <div className="image-details-container">

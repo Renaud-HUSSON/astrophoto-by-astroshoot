@@ -19,13 +19,11 @@ $db = $database->connect();
 //Instantiate a new Category
 $category = new Category($db);
 
-//Get data
-$data = json_decode(file_get_contents('php://input'));
-
 //Verify params integrity
-$category->id = validate_param($data->id);
-$category->titre = validate_param($data->titre);
-$category->nom = validate_param($data->nom);
+$category->id = validate_param($_POST['id']);
+$category->titre = validate_param($_POST['titre']);
+$category->nom = validate_param($_POST['nom']);
+$category->image = validate_param($_POST['image']);
 
 //Try to update the category
 if($category->update()){

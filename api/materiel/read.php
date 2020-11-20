@@ -44,7 +44,7 @@ if($num>0){
       'href' => $href
     );
 
-    array_push($materiel_arr, $materiel_item);
+    array_push($materiel_arr['data'], $materiel_item);
   }
   echo json_encode($materiel_arr);
 }else{

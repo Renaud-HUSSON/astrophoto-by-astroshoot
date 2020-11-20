@@ -31,7 +31,7 @@ class Infobox {
   }
 
   public function read_single(){
-    $query = 'SELECT * FROM ' . $this->table . ' WHERE id=' . $this->id;
+    $query = 'SELECT * FROM ' . $this->table . ' WHERE nom="' . $this->nom . '"';
 
     $data = $this->conn->query($query);
 

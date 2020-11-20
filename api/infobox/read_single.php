@@ -27,7 +27,7 @@ if(sizeof($_GET) != 1){
 }
 
 //Verify the API is called with id parameter
-$infobox->id = validate_param($_GET['id']);
+$infobox->nom = validate_param($_GET['nom']);
 
 //Get infobox & number of row from the database
 $data = $infobox->read_single();

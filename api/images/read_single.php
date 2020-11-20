@@ -39,7 +39,7 @@ if($num == 1){
     'categorie' => $categorie,
     'titre' => $titre,
     'details' => $details,
-    'desription' => $description,
+    'description' => $description,
     'infobox' => $infobox
   );
 

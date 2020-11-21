@@ -33,7 +33,11 @@ const ImageDetails = () => {
     <h1>{image.titre}</h1>
     <div className="image-container">
       <div className="image">
-        <img onClick={openModal} src={`https://astrophoto-amateur.fr/${image.src}`} alt={image.titre}/>
+        {
+          image.src.match(/[.]mp4/)
+          ? <video controls autoPlay src={`https://astrophoto-amateur.fr/${image.src}`} type="video/mp4"></video>
+          :<img onClick={openModal} src={`https://astrophoto-amateur.fr/${image.src}`} alt={image.titre}/>
+        }
         <button onClick={openModal} className="open-modal">Afficher l'image en grand</button>
       </div>
       <div className="image-informations-container">
@@ -54,7 +58,10 @@ const ImageDetails = () => {
       </p>
     </div>
     <Modal modalOpened={modalOpened} setModalOpened={setModalOpened}>
-      <img onClick={cancelClick} src={`https://astrophoto-amateur.fr/${image.src}`} alt="Nébuleuse"/>
+      { image.src.match(/[.]mp4/)
+        ? <video controls autoPlay src={`https://astrophoto-amateur.fr/${image.src}`} type="video/mp4"></video>
+        :<img onClick={cancelClick} src={`https://astrophoto-amateur.fr/${image.src}`} alt="Nébuleuse"/>
+      }
       <CloseModal setModalOpened={setModalOpened}>X</CloseModal>
     </Modal>
   </motion.div>

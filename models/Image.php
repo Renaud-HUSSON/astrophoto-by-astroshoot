@@ -19,6 +19,14 @@ class Image {
   }
 
   public function read(){
+    $query = 'SELECT * FROM ' . $this->table . ' ORDER BY id DESC';
+
+    $stmt = $this->conn->query($query);
+
+    return $stmt;
+  }
+
+  public function read_category(){
     $query = 'SELECT * FROM ' . $this->table . ' WHERE categorie="' . $this->categorie . '" ORDER BY id DESC';
 
     $stmt = $this->conn->query($query);

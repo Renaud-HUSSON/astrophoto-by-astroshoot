@@ -18,14 +18,15 @@ $db = $database->connect();
 $image = new Image($db);
 
 //Verify GET params
-if(sizeof($_GET) != 0){
+if(sizeof($_GET) != 1){
   HTTPStatus(400);
-  echo json_encode(array('error' => 'The API doesn\'t requires parameter'));
+  echo json_encode(array('error' => 'The API requires 1 parameter'));
   die();
 }
+$image->categorie = validate_param($_GET['category']);
 
 //Fetch images
-$result = $image->read();
+$result = $image->read_category();
 $num = $result->rowCount();
 
 $images_arr = array();

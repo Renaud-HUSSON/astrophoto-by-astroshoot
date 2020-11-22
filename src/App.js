@@ -14,6 +14,7 @@ import {Switch, Route, useLocation} from 'react-router-dom'
 import './styles/app.scss'
 //Custom Hook to fetch data from an URL
 import useFetchData from './components/shared/Hooks/useFetchData'
+import Admin from './Admin/Admin'
 
 function App() {
   const location = useLocation()
@@ -49,6 +50,9 @@ function App() {
             </Route>
             <Route path="/calculs" exact>
               <Calculs />
+            </Route>
+            <Route path="/admin">
+              <Admin />
             </Route>
           </Switch>
         </AnimatePresence>

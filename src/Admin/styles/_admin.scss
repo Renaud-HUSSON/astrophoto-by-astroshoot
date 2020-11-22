@@ -1,0 +1,43 @@
+.Admin {
+  display: flex;
+
+  .admin-nav {
+    margin: 2rem;
+    ul {
+      text-decoration: none;
+      color: $black;
+      font-size: 1.5rem;
+
+      li {
+        margin: 2rem 0;
+        list-style: none;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .datas {
+    flex: 1;
+    margin: 2rem;
+
+    table {
+      margin: 2rem 0;
+      width: 100%;
+      border-collapse: collapse;
+      thead {
+        &:after {
+          content: '';
+          height: 1rem;
+          display: table-row;
+        }
+      }
+      tbody {
+        td {
+          padding: 1rem 0;
+          padding-right: 2rem;
+          border-top: 1px solid $black;
+        }
+      }
+    }
+  }
+}

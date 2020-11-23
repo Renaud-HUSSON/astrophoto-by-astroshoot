@@ -1,43 +1,22 @@
-import { useCallback, useState } from 'react'
+import AdminNav from './components/AdminNav'
 import Grid from './components/Grid'
+import Update from './pages/Update'
+import {motion} from 'framer-motion'
+import { Route, Switch } from 'react-router-dom'
 
 const Admin = () => {
-  const [section, setSection] = useState('IMAGES')
-
-  const datas = {
-    IMAGES: {
-      apiURL: 'images',
-    },
-    CATEGORIES: {
-      apiURL: 'category',
-    },
-    INFOBOX: {
-      apiURL: 'infobox',
-    },
-    MATERIEL: {
-      apiURL: 'materiel',
-    }
-  }
-
-  const handleClick = useCallback((e) => {
-    setSection(e.target.textContent)
-  }, [])
-
-  return <div className="Admin">
+  return <motion.div className="Admin" exit=' '>
     <div className="admin-nav">
       <h1>Admin</h1>
-      <ul>
-        <li onClick={handleClick}>IMAGES</li>
-        <li onClick={handleClick}>CATEGORIES</li>
-        <li onClick={handleClick}>INFOBOX</li>
-        <li onClick={handleClick}>MATERIEL</li>
-      </ul>
+      <AdminNav />
     </div>
     <div className="datas">
-      <h1>{section}</h1>
-      <Grid datas={datas[section]}/>
+      <Switch>
+        <Route exact path="/admin/:section" component={Grid} />
+        <Route path="/admin/:section/update/:id" component={Update} />
+      </Switch>
     </div>
-  </div>
+  </motion.div>
 }
 
 export default Admin

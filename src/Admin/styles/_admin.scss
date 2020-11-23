@@ -7,11 +7,15 @@
       text-decoration: none;
       color: $black;
       font-size: 1.5rem;
+      a {
+        color: $black;
+        text-decoration: none;
 
-      li {
-        margin: 2rem 0;
-        list-style: none;
-        cursor: pointer;
+        li {
+          margin: 2rem 0;
+          list-style: none;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -21,10 +25,17 @@
     margin: 2rem;
 
     table {
+      border-collapse: collapse;
       margin: 2rem 0;
       width: 100%;
-      border-collapse: collapse;
+
       thead {
+        tr {
+          td {
+            width: auto;
+          }
+        }
+
         &:after {
           content: '';
           height: 1rem;
@@ -32,12 +43,60 @@
         }
       }
       tbody {
-        td {
-          padding: 1rem 0;
-          padding-right: 2rem;
-          border-top: 1px solid $black;
+        tr {
+          height: 100%;
+
+          td {
+            padding: 1rem 0;
+            padding-right: 2rem;
+            border-top: 1px solid $black;
+          }
+
+          .update, .delete {
+            cursor: pointer;
+          }
+
+          .update {
+            color: orange;
+          }
+
+          .delete {
+            color: red;
+          }
         }
       }
     }
+
+    .update {
+      
+    }
+  }
+
+  label {
+    font-size: 1.2rem;
+  }
+
+  input, select, textarea {
+    width: 50%;
+    margin: 0.5rem 0rem;
+  }
+  input {
+    height: 30px;
+
+    &[placeholder], &[value]{
+      padding: 1rem;
+    }
+  }
+
+  select {
+    height: 30px;
+
+    option {
+      padding: 2rem;
+    }
+  }
+
+  textarea {
+    padding: 1rem;
   }
 }

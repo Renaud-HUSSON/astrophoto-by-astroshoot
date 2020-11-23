@@ -2,7 +2,6 @@
 import AccueilText from '../components/Accueil/AccueilText'
 import ImageCarousel from '../components/Accueil/ImageCarousel'
 import CardCarousel from '../components/Accueil/CardCarousel'
-import Loading from '../components/shared/Loading'
 // Images
 import image1 from '../images/nebuleuses/NGC6992-30-05-2020.jpg'
 import image2 from '../images/nebuleuses/NGC6992-22-05-2020.jpg'
@@ -19,7 +18,7 @@ const Accueil = () => {
   let imagev3 = {title: "Nébuleuse 3", src:image3}
   const images = [imagev1, imagev2, imagev3]
 
-  const categories = useFetchData('http://localhost/astroshoot/api/category/read.php')
+  const categories = useFetchData('http://localhost/astroshoot/api/categories/read.php')
 
   const fadeAnim = fadeIn();
 

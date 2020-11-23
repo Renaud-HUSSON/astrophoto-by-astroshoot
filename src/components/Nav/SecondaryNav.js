@@ -5,7 +5,7 @@ import useFetchData from '../shared/Hooks/useFetchData'
 import Loading from '../shared/Loading'
 
 const SecondaryNav = ({nav, handleNav, closeNav}) => {
-  const categories = useFetchData('http://localhost/astroshoot/api/category/read.php')
+  const categories = useFetchData('http://localhost/astroshoot/api/categories/read.php')
 
   return <div className={`secondary-nav ${nav ? "active" : ""}`}>
     <div className="header">

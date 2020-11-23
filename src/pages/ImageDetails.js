@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom"
 const ImageDetails = () => {
   const params = useParams()
 
-  const imageData = useFetchData(`http://localhost/astroshoot/api/images/read_single.php?id=${params.id}&category=${params.categorie}`)
+  const imageData = useFetchData(`http://localhost/astroshoot/api/images/read_single.php?id=${params.id}`)
 
   const pageAnimation = fadeIn()
   const [modalOpened, setModalOpened] = useState(false)

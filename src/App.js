@@ -18,8 +18,7 @@ import Admin from './Admin/Admin'
 
 function App() {
   const location = useLocation()
-
-  const categories = useFetchData('http://localhost/astroshoot/api/category/read.php')
+  const categories = useFetchData('http://localhost/astroshoot/api/categories/read.php')
 
   return (
     <div className="App">
@@ -27,9 +26,7 @@ function App() {
       <div id="page-container">
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.key}>
-            <Route path="/" exact>
-              <Accueil />
-            </Route>
+            <Route path="/" exact component={Accueil} />
             {
               !categories[1] 
               ? categories[0]['data'].map((categorie) => {
@@ -39,21 +36,11 @@ function App() {
                 })
               : ''
             }
-            <Route path="/:categorie/:id" exact>
-              <ImageDetails />
-            </Route>
-            <Route path="/materiel" exact>
-              <Materiel />
-            </Route>
-            <Route path="/informations" exact>
-              <Informations />
-            </Route>
-            <Route path="/calculs" exact>
-              <Calculs />
-            </Route>
-            <Route path="/admin">
-              <Admin />
-            </Route>
+            <Route path="/admin" component={Admin}/>
+            <Route path="/:categorie/:id" exact component={ImageDetails} />
+            <Route path="/materiel" exact component={Materiel} />
+            <Route path="/informations" exact component={Informations}/>
+            <Route path="/calculs" exact component={Calculs}/>
           </Switch>
         </AnimatePresence>
       </div>

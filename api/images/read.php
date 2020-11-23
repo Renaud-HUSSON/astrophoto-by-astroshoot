@@ -39,11 +39,12 @@ if($num > 0){
 
     $image_item = array(
       'id' => $id,
-      'src' => $src,
-      'categorie' => $categorie,
       'titre' => $titre,
+      'categorie' => $categorie,
+      'src' => $src,
+      'infobox' => $infobox,
       'details' => $details,
-      'description' => $infobox
+      'description' => $description,
     );
 
     array_push($images_arr['data'], $image_item);

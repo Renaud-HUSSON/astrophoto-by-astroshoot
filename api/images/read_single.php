@@ -19,7 +19,6 @@ $image = new Image($db);
 
 //Verify GET params
 $image->id = validate_param($_GET['id']);
-$image->categorie = validate_param($_GET['category']);
 
 //Fetch images
 $result = $image->read_single();

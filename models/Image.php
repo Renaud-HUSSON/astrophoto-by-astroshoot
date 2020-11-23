@@ -35,7 +35,7 @@ class Image {
   }
 
   public function read_single(){
-    $query = 'SELECT * FROM ' . $this->table . ' WHERE id=' . $this->id . ' AND categorie="' . $this->categorie . '"';
+    $query = 'SELECT * FROM ' . $this->table . ' WHERE id=' . $this->id;
 
     $stmt = $this->conn->query($query);
 

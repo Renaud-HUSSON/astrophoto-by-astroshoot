@@ -1,8 +1,8 @@
 import useFetchData from "../../../../components/shared/Hooks/useFetchData"
 import Loading from "../../../../components/shared/Loading"
 
-const SelectInput = ({label, value, name, section, optionValue, optionTitle}) => {
-  const sectionData = useFetchData(`http://localhost/astroshoot/api/${section}/read.php`)
+const SelectInput = ({label, value, name, section, optionValue, optionTitle, fichier="read", condition="", onChange=""}) => {
+  const sectionData = useFetchData(`http://localhost/astroshoot/api/${section}/${fichier}.php${condition}`)
   const data = !sectionData[1] ? sectionData[0].data : ''
   
   const current = !sectionData[1] 
@@ -14,7 +14,7 @@ const SelectInput = ({label, value, name, section, optionValue, optionTitle}) =>
   return !sectionData[1] 
     ?<div className="input select-input">
     <label htmlFor={name}>{label}</label><br/>
-    <select id={name}>
+    <select id={name} name={name} onChange={onChange}>
       {current !== -1 ? <option value={data[current][optionValue]}>{data[current][optionTitle]}</option> : ''}
       <option value="">Aucune</option>
       {

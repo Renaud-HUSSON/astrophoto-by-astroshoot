@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const useFetchData = (url) => {
+const useFetchData = (url, options) => {
   const [state, setState] = useState({
     items: [],
     loading: true
@@ -8,7 +8,7 @@ const useFetchData = (url) => {
 
   useEffect(() => {
     (async () => {
-      const data = await fetch(url)
+      const data = await fetch(url, options)
       const json = await data.json()
 
       if(data.ok){
@@ -17,7 +17,7 @@ const useFetchData = (url) => {
         console.log('Error while fetching data')
       }
     })()
-  }, [url])
+  }, [url, options])
 
   return [state.items, state.loading]
 }

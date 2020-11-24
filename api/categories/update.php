@@ -20,10 +20,10 @@ $db = $database->connect();
 $category = new Category($db);
 
 //Verify params integrity
-$category->id = validate_param($_POST['id']);
-$category->titre = validate_param($_POST['titre']);
-$category->nom = validate_param($_POST['nom']);
-$category->image = validate_param($_POST['image']);
+$category->id = validate_param(isset($_POST['id']) ? $_POST['id'] : '');
+$category->titre = validate_param(isset($_POST['titre']) ? $_POST['titre'] : '');
+$category->nom = validate_param(isset($_POST['nom']) ? $_POST['nom'] : '');
+$category->image = validate_param(isset($_POST['image']) ? $_POST['image'] : '');
 
 //Try to update the category
 if($category->update()){

@@ -19,9 +19,16 @@ class Category {
   public function read() {
     $query = 'SELECT categories.*, images.src FROM ' . $this->table . ' INNER JOIN images ON ' . $this->table . '.image = images.id';
 
-    $result = $this->conn->query($query);
+    return $this->conn->query($query);
 
-    return $result;
+  }
+
+  public function read_single() {
+    $query = 'SELECT ' . $this->table . '.*, images.titre as titre_image, images.src 
+              FROM ' . $this->table . ', images 
+              WHERE ' . $this->table . '.id= ' . $this->id . ' AND images.id = ' . $this->table . '.image';
+
+    return $this->conn->query($query);
   }
 
   public function create(){

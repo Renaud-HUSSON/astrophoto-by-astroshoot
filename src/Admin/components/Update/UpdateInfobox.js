@@ -2,6 +2,7 @@ import TextInput from '../shared/Forms/TextInput'
 import useFetchData from '../../../components/shared/Hooks/useFetchData'
 import Loading from '../../../components/shared/Loading'
 import { useEffect, useState } from 'react'
+import SubmitButton from '../shared/Forms/SubmitButton'
 
 const UpdateInfobox = ({section, id}) => {
   const [data, setData] = useState({})
@@ -17,8 +18,6 @@ const UpdateInfobox = ({section, id}) => {
     setData({...data, [e.target.name]: e.target.value})
   }
 
-  console.log(data)
-
   return !infoboxData[1] 
   ?<>
     <TextInput onChange={handleChange} label="ID" name="id" value={infobox.id} disabled/>
@@ -32,6 +31,7 @@ const UpdateInfobox = ({section, id}) => {
     <TextInput onChange={handleChange} label="Constellation" name="constellation" value={infobox.constellation}/>
     <TextInput onChange={handleChange} label="Taille" name="taille" value={infobox.taille}/>
     <TextInput onChange={handleChange} label="Désignations" name="designations" value={infobox.designations}/>
+    <SubmitButton section={section} data={data}/>
   </>
   :<Loading />
 }

@@ -3,6 +3,7 @@ import useFetchData from '../../../components/shared/Hooks/useFetchData'
 import Loading from '../../../components/shared/Loading'
 import SelectInput from '../shared/Forms/SelectInput'
 import { useEffect, useState } from 'react'
+import SubmitButton from '../shared/Forms/SubmitButton'
 
 
 const UpdateCategorie = ({section, id}) => {
@@ -14,6 +15,7 @@ const UpdateCategorie = ({section, id}) => {
   useEffect(() => {
     setData({
       'id': categorie.id,
+      'titre': categorie.titre,
       'nom': categorie.nom,
       'nombre': categorie.nom,
       'image': categorie.image
@@ -27,9 +29,11 @@ const UpdateCategorie = ({section, id}) => {
   return !categorieData[1] 
   ?<>
     <TextInput onChange={handleChange} label="ID" value={categorie.id} name="id" disabled/>
+    <TextInput onChange={handleChange} label="Titre" value={categorie.titre} name="titre"/>
     <TextInput onChange={handleChange} label="Nom" value={categorie.nom} name="nom" />
     <TextInput onChange={handleChange} label="Nombre" value={categorie.number} name="number" disabled/>
     <SelectInput onChange={handleChange} label="Image" name="image" value={categorie.image} section="images" fichier="read_category" condition={`?category=${categorie.nom}`} optionValue="id" optionTitle="titre"/>
+    <SubmitButton data={data} section={section}/>
   </>
   : <Loading />
 }

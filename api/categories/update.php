@@ -2,7 +2,6 @@
 
 //Headers
 header('Access-Control-Allow-Origin: http://localhost:3000');
-header('Content-Type: application/json');
 header('Access-Control-Allow-Method: PUT');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
@@ -18,6 +17,7 @@ $db = $database->connect();
 
 //Instantiate a new Category
 $category = new Category($db);
+parse_str(file_get_contents("php://input"), $data);
 
 //Verify params integrity
 $category->id = validate_param(isset($_POST['id']) ? $_POST['id'] : '');
@@ -29,6 +29,6 @@ $category->image = validate_param(isset($_POST['image']) ? $_POST['image'] : '')
 if($category->update()){
   echo json_encode(array('success' => 'La catégorie a bien été mise à jour !'));
 }else{
-  echo json_encode(array('error' => 'Une erreur est survenur'));
+  echo json_encode(array('error' => 'Une erreur est survenue'));
   HTTPStatus(500);
 }

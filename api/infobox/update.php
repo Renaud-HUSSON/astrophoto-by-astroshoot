@@ -2,7 +2,6 @@
 
 //Headers
 header('Access-Control-Allow-Origin: http://localhost:3000');
-header('Content-Type: application/json');
 header('Access-Control-Allow-Method: PUT');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
@@ -19,20 +18,17 @@ $db = $database->connect();
 //Instanciate an Infobox
 $infobox = new Infobox($db);
 
-//Get PUT data
-$data = json_decode(file_get_contents('php://input'));
-
-$infobox->id = validate_param($data->id);
-$infobox->type = validate_param($data->type);
-$infobox->nom = validate_param($data->nom);
-$infobox->right_ascension = validate_param($data->right_ascension);
-$infobox->declinaison = validate_param($data->declinaison);
-$infobox->distance = validate_param($data->distance);
-$infobox->magnitude = validate_param($data->magnitude);
-$infobox->dimensions_apparentes = validate_param($data->dimensions_apparentes);
-$infobox->constellation = validate_param($data->constellation);
-$infobox->taille = validate_param($data->taille);
-$infobox->designations = validate_param($data->designations);
+$infobox->id = isset($_POST['id']) ? $_POST['id'] : '';
+$infobox->type = isset($_POST['type']) ? $_POST['type'] : '';
+$infobox->nom = isset($_POST['nom']) ? $_POST['nom'] : '';
+$infobox->right_ascension = isset($_POST['right_ascension']) ? $_POST['right_ascension'] : '';
+$infobox->declinaison = isset($_POST['declinaison']) ? $_POST['declinaison'] : '';
+$infobox->distance = isset($_POST['distance']) ? $_POST['distance'] : '';
+$infobox->magnitude = isset($_POST['magnitude']) ? $_POST['magnitude'] : '';
+$infobox->dimensions_apparentes = isset($_POST['dimensions_apparentes']) ? $_POST['dimensions_apparentes'] : '';
+$infobox->constellation = isset($_POST['constellation']) ? $_POST['constellation'] : '';
+$infobox->taille = isset($_POST['taille']) ? $_POST['taille'] : '';
+$infobox->designations = isset($_POST['designations']) ? $_POST['designations'] : '';
 
 if($infobox->update()){
   echo json_encode(array(

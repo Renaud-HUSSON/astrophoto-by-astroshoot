@@ -2,8 +2,7 @@
 
 //Headers
 header('Access-Control-Allow-Origin: http://localhost:3000');
-header('Content-Type: application/json');
-header('Access-Control-Allow-Method: POST');
+header('Access-Control-Allow-Method: PUT');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
 //Includes
@@ -19,19 +18,10 @@ $db = $database->connect();
 //Instantiate materiel
 $materiel = new Materiel($db);
 
-//Verify params
-if(sizeof($_POST) != 3){
-  HTTPStatus(400);
-  echo json_encode(array(
-    'error' => '3 parameters are required'
-  ));
-  die();
-}
-
 //Assign materiel properties if params are valid
-$materiel->id = validate_param($_POST['id']);
-$materiel->label = validate_param($_POST['label']);
-$materiel->href = validate_param($_POST['href']);
+$materiel->id = isset($_POST['id']) ? $_POST['id'] : '';
+$materiel->label = isset($_POST['label']) ? $_POST['label'] : '';
+$materiel->href = isset($_POST['href']) ? $_POST['href'] : '';
 
 //Try to update the materiel
 if($materiel->update()){

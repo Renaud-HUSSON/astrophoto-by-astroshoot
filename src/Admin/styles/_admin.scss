@@ -23,6 +23,29 @@
   .datas {
     flex: 1;
     margin: 2rem;
+    position: relative;
+
+    .create-button-container {
+      display: flex;
+      justify-content: flex-end;
+
+      .create-button {
+        cursor: pointer;
+        color: $white;
+        text-decoration: none;
+        background: $blue;
+        transition: 0.3s;
+        border: none;
+        padding: 0.5rem 2rem;
+        border: 1px solid $white;
+
+        &:hover {
+          color: $blue;
+          background: $white;
+          border: 1px solid $blue;
+        }
+      }
+    }
 
     table {
       border-collapse: collapse;
@@ -66,10 +89,6 @@
         }
       }
     }
-
-    .update {
-      
-    }
   }
 
   label {
@@ -98,5 +117,58 @@
 
   textarea {
     padding: 1rem;
+  }
+
+  button {
+    cursor: pointer;
+    color: $white;
+    text-decoration: none;
+    background: $blue;
+    transition: 0.3s;
+    border: none;
+    padding: 0.5rem 2rem;
+    border: 1px solid $white;
+
+    &:hover {
+      color: $blue;
+      background: $white;
+      border: 1px solid $blue;
+    }
+
+    &[disabled]{
+      cursor: not-allowed;
+
+      &:hover {
+        color: $white;
+        background: $blue;
+        border: 1px solid $white;
+      }
+    }
+  }
+
+  .file-input input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .file-input input + label {
+    margin: 0.5rem 0;
+    padding: 0.2rem 1rem;
+    color: white;
+    background-color: $blue;
+    display: inline-block;
+    transition: 0.3s;
+    border: 1px solid $white;
+    cursor: pointer;
+  }
+
+  .file-input input + label:hover {
+      background-color: $white;
+      color: $blue;
+      border: 1px solid $blue;
   }
 }

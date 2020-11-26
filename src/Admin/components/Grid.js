@@ -18,6 +18,9 @@ const Grid = () => {
   return !apiDatas[1] 
   ? <div>
       <h1>{section.toUpperCase()}</h1>
+      <div className="create-button-container">
+        <Link to={`/admin/${section}/create`} className="create-button">Créer</Link>
+      </div>
       <table>
         <thead>
           <tr>

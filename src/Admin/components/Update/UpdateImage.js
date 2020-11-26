@@ -26,7 +26,7 @@ const UpdateImage = ({section, id}) => {
     <SelectInput onChange={handleChange} label='Infobox' name="infobox" value={image.infobox} section="infobox" optionValue="nom" optionTitle="nom"/>
     <TextInput onChange={handleChange} label='Détails' name="details" value={image.details} multiline/>
     <TextInput onChange={handleChange} label='Description' name="description" value={image.description} multiline/>
-    <SubmitButton data={data} section={section}/>
+    <SubmitButton section={section} data={data} mode="update"/>
   </>
   : <Loading />
 }

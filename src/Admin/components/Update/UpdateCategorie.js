@@ -33,7 +33,7 @@ const UpdateCategorie = ({section, id}) => {
     <TextInput onChange={handleChange} label="Nom" value={categorie.nom} name="nom" />
     <TextInput onChange={handleChange} label="Nombre" value={categorie.number} name="number" disabled/>
     <SelectInput onChange={handleChange} label="Image" name="image" value={categorie.image} section="images" fichier="read_category" condition={`?category=${categorie.nom}`} optionValue="id" optionTitle="titre"/>
-    <SubmitButton data={data} section={section}/>
+    <SubmitButton section={section} data={data} mode="update"/>
   </>
   : <Loading />
 }

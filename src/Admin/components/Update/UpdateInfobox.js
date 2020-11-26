@@ -31,7 +31,7 @@ const UpdateInfobox = ({section, id}) => {
     <TextInput onChange={handleChange} label="Constellation" name="constellation" value={infobox.constellation}/>
     <TextInput onChange={handleChange} label="Taille" name="taille" value={infobox.taille}/>
     <TextInput onChange={handleChange} label="Désignations" name="designations" value={infobox.designations}/>
-    <SubmitButton section={section} data={data}/>
+    <SubmitButton section={section} data={data} mode="update"/>
   </>
   :<Loading />
 }

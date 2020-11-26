@@ -3,7 +3,7 @@ import UpdateImage from "./UpdateImage";
 import UpdateInfobox from "./UpdateInfobox";
 import UpdateMateriel from "./UpdateMateriel";
 
-const RenderSwitch = ({section, id}) => {
+const UpdateRenderSwitch = ({section, id}) => {
   switch (section) {
     case 'images':
       return <UpdateImage section={section} id={id}/>
@@ -19,4 +19,4 @@ const RenderSwitch = ({section, id}) => {
   }
 }
 
-export default RenderSwitch
+export default UpdateRenderSwitch

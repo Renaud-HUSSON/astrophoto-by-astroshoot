@@ -18,7 +18,7 @@ const Accueil = () => {
   let imagev3 = {title: "Nébuleuse 3", src:image3}
   const images = [imagev1, imagev2, imagev3]
 
-  const categories = useFetchData('http://localhost/astroshoot/api/categories/read.php')
+  const categories = useFetchData('http://localhost/astroshoot/api/categories/read_image.php')
 
   const fadeAnim = fadeIn();
 

@@ -36,9 +36,9 @@ if($num == 1){
     'titre' => $titre,
     'nom' => $nom,
     'number' => $number,
-    'image' => $image,
-    'titre_image' => $titre_image,
-    'src' => $src
+    'image' => isset($image) ? $image : '',
+    'titre_image' => isset($titre_image) ? $titre_image : '',
+    'src' => isset($src) ? $src : ''
   );
 
   array_push($categorie_arr['data'], $categorie_item);

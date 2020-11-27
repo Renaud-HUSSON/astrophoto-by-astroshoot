@@ -3,7 +3,7 @@ const SimpleForm = ({children}) => {
     e.preventDefaul();
   } 
   
-  return <form onSubmit={handleSubmit}>
+  return <form className="admin-form" onSubmit={handleSubmit}>
     {children}
   </form>
 }

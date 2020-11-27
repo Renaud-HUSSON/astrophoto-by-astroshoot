@@ -1,7 +1,10 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { Redirect } from "react-router-dom"
+import { RedirectContext } from "../Context/RedirectContext"
 
 const SubmitButton = ({data, section, mode, correct=true}) => {
   const [loading, setLoading] = useState(false)
+  const [redirect, setRedirect] = useContext(RedirectContext)
 
   const handleClick = async (e) => {
     e.preventDefault()
@@ -23,6 +26,11 @@ const SubmitButton = ({data, section, mode, correct=true}) => {
     const json = await update.json()
     setLoading(false)
     console.log(json)
+    setRedirect(true)
+  }
+
+  if(redirect){
+    return <Redirect to={`/admin/${section}`} />
   }
 
   return <button disabled={!correct} onClick={handleClick}>{!loading ? 'Valider' : 'Chargement'}</button>

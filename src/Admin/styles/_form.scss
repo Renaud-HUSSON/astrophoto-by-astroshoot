@@ -1,0 +1,83 @@
+label {
+  font-size: 1.2rem;
+}
+
+input, select, textarea {
+  width: 50%;
+  margin: 0.5rem 0rem;
+}
+input {
+  height: 30px;
+
+  &[placeholder], &[value]{
+    padding: 1rem;
+  }
+}
+
+select {
+  height: 30px;
+
+  option {
+    padding: 2rem;
+  }
+}
+
+textarea {
+  padding: 1rem;
+}
+
+.admin-form {
+  button {
+    cursor: pointer;
+    color: $white;
+    text-decoration: none;
+    background: $blue;
+    transition: 0.3s;
+    border: none;
+    border: 1px solid $blue;
+    padding: 0.5rem 2rem;
+  
+    &:hover {
+      color: $blue;
+      background: $white;
+      border: 1px solid $blue;
+    }
+  
+    &[disabled]{
+      cursor: not-allowed;
+  
+      &:hover {
+        color: $white;
+        background: $blue;
+        border: 1px solid $white;
+      }
+    }
+  }
+}
+
+
+.file-input input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.file-input input + label {
+  margin: 0.5rem 0;
+  padding: 0.2rem 1rem;
+  color: white;
+  background-color: $blue;
+  display: inline-block;
+  transition: 0.3s;
+  border: 1px solid $white;
+  cursor: pointer;
+}
+
+.file-input input + label:hover {
+    background-color: $white;
+    color: $blue;
+    border: 1px solid $blue;
+}

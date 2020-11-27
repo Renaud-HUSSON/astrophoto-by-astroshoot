@@ -35,7 +35,14 @@ class Category {
               FROM ' . $this->table . ', images 
               WHERE ' . $this->table . '.id= ' . $this->id . ' AND images.id = ' . $this->table . '.image';
 
-    return $this->conn->query($query);
+    $result = $this->conn->query($query);
+
+    if($result->rowCount() == 0){
+      $query = 'SELECT * FROM ' . $this->table . ' WHERE id=' . $this->id;
+      $result = $this->conn->query($query);
+    }
+    
+    return $result;
   }
 
   public function create(){

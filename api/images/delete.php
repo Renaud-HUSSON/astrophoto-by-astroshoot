@@ -23,6 +23,26 @@ $image = new Image($db);
 $image->id = validate_param($_GET['id']);
 $image->categorie = validate_param($_GET['categorie']);
 
+//Fetch image src from db
+$delete_query = 'SELECT src FROM images WHERE id=' . $image->id;
+
+//Fetch the path of the image
+if($image_data = $db->query($delete_query)){
+  $image_delete = $image_data->fetch();
+
+  //Verify the result isn't empty
+  if($image_delete){
+    $path = $image_delete['src'];
+    $thumbnail_path = preg_replace("/(.*)([.](png|jpg|jpeg))/", "$1-thumbnail$2", $path);
+    //Try to delete both image and thumbnail
+    if(!(unlink($image_delete['src']) && unlink($thumbnail_path))){
+      HTTPStatus(500);
+      echo json_encode(array('error' => 'L\'image n\'a pas pu être supprimée'));
+      die();
+    }
+  }
+}
+
 if($image->delete()){
   echo json_encode(array('success' => 'L\'image a bien été supprimée'));
 }else{

@@ -57,57 +57,56 @@ const Calcul = () => {
       <h1>Résultats</h1>
       <div className="input-container">
         <label htmlFor="">Rapport F/D:</label><br/>
-        <input readonly="" type="text" value={Math.round(LF/D*10)/10}/>
+        <input onChange={() => {}} readOnly="" type="text" value={Math.round(LF/D*10)/10}/>
       </div>
       <div className="input-container">
         <label htmlFor="">Pouvoir séparateur du télescope en secondes d'arc:</label><br/>
-        <input readonly="" type="text" value={Math.round(120/D*10)/10}/>
+        <input onChange={() => {}} readOnly="" type="text" value={Math.round(120/D*10)/10}/>
       </div>
       <div className="input-container">
         <label htmlFor="">Magnitude visuelle limite du télescope:</label><br/>
-        <input readonly="" type="text" value={Math.round((5*Math.log10(D)+2.1)*10)/10}/>
+        <input onChange={() => {}} readOnly="" type="text" value={Math.round((5*Math.log10(D)+2.1)*10)/10}/>
       </div>
       <div className="input-container">
         <label htmlFor="">Champ de vision en minutes d'arc de l'oculaire:</label><br/>
-        <input readonly="" type="text" value={Math.round(Cd/(LF/lf)*60*10)/10}/>
+        <input onChange={() => {}} readOnly="" type="text" value={Math.round(Cd/(LF/lf)*60*10)/10}/>
       </div>
       <div className="input-container">
         <label htmlFor="">Grossissement à l'oculaire:</label><br/>
-        <input readonly="" type="text" value={Math.round(LF/lf*10)/10}/>
+        <input onChange={() => {}} readOnly="" type="text" value={Math.round(LF/lf*10)/10}/>
       </div>
       <div className="input-container">
         <label htmlFor="">Grossissement max théorique (Grossissement généralement impossible à utiliser):</label><br/>
-        <input readonly="" type="text" value={Math.round(D*2.4*10)/10}/>
+        <input onChange={() => {}} readOnly="" type="text" value={Math.round(D*2.4*10)/10}/>
       </div>
       <div className="input-container">
         <label htmlFor="">Grossissement utile:</label><br/>
-        <input readonly="" type="text" value={Math.round(D*10)/10 + " à " + Math.round(D*2*10)/10}/>
+        <input onChange={() => {}} readOnly="" type="text" value={Math.round(D*10)/10 + " à " + Math.round(D*2*10)/10}/>
       </div>
       <div className="input-container">
         <label htmlFor="">Grossissement minimum:</label><br/>
-        <input readonly="" type="text" value={Math.round(D/7*10)/10}/>
+        <input onChange={() => {}} readOnly="" type="text" value={Math.round(D/7*10)/10}/>
       </div>
       <div className="input-container">
         <label htmlFor="">Taille de la pupille de sortie:</label><br/>
-        <input readonly="" type="text" value={Math.round(D/(LF/lf)*10)/10}/>
+        <input onChange={() => {}} readOnly="" type="text" value={Math.round(D/(LF/lf)*10)/10}/>
       </div>
       <div className="input-container">
         <label htmlFor="">Échantillonnage:</label><br/>
-        <input readonly="" type="text" value={Math.round(206*tp/LF*100)/100}/>
+        <input onChange={() => {}} readOnly="" type="text" value={Math.round(206*tp/LF*100)/100}/>
       </div>
       <div className="input-container">
         <label htmlFor="">Échantillonnage optimal en planétaire (en secondes d'arc):</label><br/>
-        <input readonly="" type="text" value={Math.round(0.206*550/(2*D)*100)/100}/>
+        <input onChange={() => {}} readOnly="" type="text" value={Math.round(0.206*550/(2*D)*100)/100}/>
       </div>
       <div className="input-container">
         <label htmlFor="">Échantillonnage optimal en ciel profond:</label><br/>
-        <input readonly="" type="text" value="Échantillonnage optimal en ciel profond:"/>
+        <input onChange={() => {}} readOnly="" type="text" value="Échantillonnage optimal en ciel profond:"/>
       </div>
       <div className="input-container">
         <label htmlFor="">Champ de vision couvert par la caméra en minutes d'arc:</label><br/>
-        <input readonly="" type="text" value={Math.round(2*Math.atan((nbpx*tp/1000)/(2*LF))*(180/Math.PI)*60*10)/10 + " par " + Math.round(2*Math.atan((nbpy*tp/1000)/(2*LF))*(180/Math.PI)*60*10)/10}/>
+        <input onChange={() => {}} readOnly="" type="text" value={Math.round(2*Math.atan((nbpx*tp/1000)/(2*LF))*(180/Math.PI)*60*10)/10 + " par " + Math.round(2*Math.atan((nbpy*tp/1000)/(2*LF))*(180/Math.PI)*60*10)/10}/>
       </div>
-      
     </div>
   </motion.div>
 }

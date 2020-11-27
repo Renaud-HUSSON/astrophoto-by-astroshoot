@@ -1,0 +1,37 @@
+.delete-form {
+  width: 50%;
+
+  .delete {
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .action-buttons {
+    margin: 0.5rem 0;
+    
+    > * {
+      margin-right: 1rem;
+    }
+
+    .cancel-delete {
+      cursor: pointer;
+      color: $blue;
+      text-decoration: none;
+      background: $white;
+      transition: 0.3s;
+      border: none;
+      padding: 0.5rem 2rem;
+      border: 1px solid $blue;
+
+      &:hover {
+        color: $white;
+        background: $blue;
+        border: 1px solid $white;
+      }
+    }
+  }
+}

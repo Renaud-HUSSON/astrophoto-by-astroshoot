@@ -11,7 +11,7 @@ const useFetchData = (url, options) => {
       const data = await fetch(url, options)
       const json = await data.json()
 
-      if(data.ok){
+      if(data.ok && json.length !== 0){
         setState({items: json, loading: false})
       }else{
         console.log('Error while fetching data')

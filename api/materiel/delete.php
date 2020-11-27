@@ -19,15 +19,6 @@ $db = $database->connect();
 //Instantiate materiel
 $materiel = new Materiel($db);
 
-//Verify params
-if(sizeof($_GET) != 1){
-  HTTPStatus(400);
-  echo json_encode(array(
-    'error' => '1 parameters is required'
-  ));
-  die();
-}
-
 //Assign materiel properties if param is valid
 $materiel->id = validate_param($_GET['id']);
 

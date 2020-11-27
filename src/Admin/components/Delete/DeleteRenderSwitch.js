@@ -1,16 +1,24 @@
+import useFetchData from "../../../components/shared/Hooks/useFetchData";
+import Loading from "../../../components/shared/Loading";
 import DeleteCategorie from "./DeleteCategorie";
 import DeleteImage from "./DeleteImage";
 import DeleteInfobox from "./DeleteInfobox";
 import DeleteMateriel from "./DeleteMateriel";
 
 const DeleteRenderSwitch = ({section ,id}) => {
+  //Getting all infoboxes to get the one with the matching id and passing it down to DeleteInfobox
+  const infoboxData = useFetchData(`http://localhost/astroshoot/api/${section}/read.php`)
+  const infobox = !infoboxData[1] 
+  ? infoboxData[0].data.filter(infobox => infobox.id === id)[0]
+  : ''
+
   switch (section) {
     case 'images':
       return <DeleteImage section={section} id={id}/>
     case 'categories':
       return <DeleteCategorie section={section} id={id}/>
     case 'infobox':
-      return <DeleteInfobox section={section} id={id}/>
+      return !infoboxData[1] ? <DeleteInfobox section={section} id={id} nom={infobox.nom}/> : <Loading />
     case 'materiel':
       return <DeleteMateriel section={section} id={id}/>
   

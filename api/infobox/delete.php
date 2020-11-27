@@ -19,15 +19,6 @@ $db = $database->connect();
 //Instanciate an infobox
 $infobox = new Infobox($db);
 
-//Verify that the API is called with one parameter
-if(sizeof($_GET) != 1){
-  HTTPStatus(400);
-  echo json_encode(array(
-    'error' => 'The API requires one parameter'
-  ));
-  die();
-}
-
 //Verify that the parameter is 'id' and assign infobox id
 $infobox->id = validate_param($_GET['id']);
 

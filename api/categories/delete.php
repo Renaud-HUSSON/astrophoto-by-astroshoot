@@ -22,7 +22,18 @@ $category = new Category($db);
 //Verify params integrity
 $category->id = validate_param($_GET['id']);
 
+$get_delete_query = 'SELECT * FROM categories WHERE id=' . $category->id;
+$result = $db->query($get_delete_query);
+
+if($result->rowCount() != 0){
+  $data = $result->fetch();
+  $deleted = $data['nom'];
+}else{
+  echo json_encode(array('error' => 'ah merde'));
+}
+
 if($category->delete()){
+  rmdir('../../src/images/' . $deleted);
   echo json_encode(array('success' => 'La catégorie a bien été supprimée'));
 }else{
   HTTPStatus(500);

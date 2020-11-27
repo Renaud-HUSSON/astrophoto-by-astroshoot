@@ -2,7 +2,6 @@
 
 //Headers
 header('Access-Control-Allow-Origin: http://localhost:3000');
-header('Content-Type: application/json');
 header('Access-Control-Allow-Method: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
@@ -11,6 +10,7 @@ include_once '../../config/Database.php';
 include_once '../../utils/HTTPStatus.php';
 include_once '../../models/Image.php';
 include_once '../../utils/validate_param.php';
+include_once '../../utils/image_upload.php';
 
 //Instantiate DB & connect
 $database = new Database();
@@ -20,16 +20,29 @@ $db = $database->connect();
 $image = new Image($db);
 
 //Verify params integrity & assign them to image object if valid
-$image->src = validate_param($_POST['src']);
+$image->src = '';
 $image->categorie = validate_param($_POST['categorie']);
-$image->titre = validate_param($_POST['titre']);
-$image->details = validate_param($_POST['details']);
-$image->description = validate_param($_POST['description']);
-$image->infobox = validate_param($_POST['infobox']);
+$image->titre = strip_tags($_POST['titre']);
+$image->details = strip_tags($_POST['details']);
+$image->description = strip_tags($_POST['description']);
+$image->infobox = $_POST['infobox'];
 
-if($image->create()){
-  echo json_encode(array('success' => 'L\'image a bien été ajoutée !'));
+//Try to upload the image to the server
+if(image_upload($_FILES['image'], $image->categorie, $image)){
+  //Try to create a thumbnail of the image
+  if(image_resize($image->src)){
+    if($image->create()){
+      echo json_encode(array('success' => 'L\'image a bien été ajoutée !'));
+    }else{
+      echo json_encode(array('error' => 'Une erreur est survenue'));
+      HTTPStatus(500);
+    }
+  }else{
+    HTTPStatus(500);
+    echo json_encode('La miniature de l\'image n\'a pas été possible');
+    die();
+  }
 }else{
-  echo json_encode(array('error' => 'Une erreur est survenue'));
   HTTPStatus(500);
+  echo json_encode(array('error' => 'Une erreur est survenue pendant l\'upload de l\'image'));
 }

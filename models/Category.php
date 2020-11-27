@@ -17,6 +17,13 @@ class Category {
   }
 
   public function read() {
+    $query = 'SELECT * FROM ' . $this->table;
+
+    return $this->conn->query($query);
+
+  }
+
+  public function read_image() {
     $query = 'SELECT categories.*, images.src FROM ' . $this->table . ' INNER JOIN images ON ' . $this->table . '.image = images.id';
 
     return $this->conn->query($query);

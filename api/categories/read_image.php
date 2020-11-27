@@ -24,7 +24,7 @@ $db = $database->connect();
 $category = new Category($db);
 
 //Fetch category
-$result = $category->read();
+$result = $category->read_image();
 $num = $result->rowCount();
 
 $categories = array();
@@ -40,7 +40,8 @@ if($num > 0){
       'titre' => $titre,
       'nom' => $nom,
       'number' => $number,
-      'image' => $image
+      'image' => $image,
+      'src' => $src,
     );
 
     array_push($categories['data'], $category_item);

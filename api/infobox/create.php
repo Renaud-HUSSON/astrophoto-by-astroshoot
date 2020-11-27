@@ -29,16 +29,16 @@ if(sizeof($_POST) != 10){
   die();
 }
 
-$infobox->type = validate_param($_POST['type']);
-$infobox->nom = validate_param($_POST['nom']);
-$infobox->right_ascension = validate_param($_POST['right_ascension']);
-$infobox->declinaison = validate_param($_POST['declinaison']);
-$infobox->distance = validate_param($_POST['distance']);
-$infobox->magnitude = validate_param($_POST['magnitude']);
-$infobox->dimensions_apparentes = validate_param($_POST['dimensions_apparentes']);
-$infobox->constellation = validate_param($_POST['constellation']);
-$infobox->taille = validate_param($_POST['taille']);
-$infobox->designations = validate_param($_POST['designations']);
+$infobox->type = isset($_POST['type']) ? $_POST['type'] : '';
+$infobox->nom = isset($_POST['nom']) ? $_POST['nom'] : '';
+$infobox->right_ascension = isset($_POST['right_ascension']) ? $_POST['right_ascension'] : '';
+$infobox->declinaison = isset($_POST['declinaison']) ? $_POST['declinaison'] : '';
+$infobox->distance = isset($_POST['distance']) ? $_POST['distance'] : '';
+$infobox->magnitude = isset($_POST['magnitude']) ? $_POST['magnitude'] : '';
+$infobox->dimensions_apparentes = isset($_POST['dimensions_apparentes']) ? $_POST['dimensions_apparentes'] : '';
+$infobox->constellation = isset($_POST['constellation']) ? $_POST['constellation'] : '';
+$infobox->taille = isset($_POST['taille']) ? $_POST['taille'] : '';
+$infobox->designations = isset($_POST['designations']) ? $_POST['designations'] : '';
 
 if($infobox->create()){
   echo json_encode(array(

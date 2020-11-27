@@ -18,7 +18,7 @@ const Categorie = ({categorie, title}) => {
       {
         !images[1]
         ? images[0].data.map((image) => {
-          const src = image.src.replace(/^(.*)([.](jpg|png))$/, "$1-thumbnail$2")
+          const src = image.src.replace(/^(.*)([.](jpg|jpeg|png))$/, "$1-thumbnail$2")
 
           return <ImageContainer key={image.id} categorie={image.categorie} id={image.id} title={image.titre} src={`https://astrophoto-amateur.fr/${src}`}/>
         })

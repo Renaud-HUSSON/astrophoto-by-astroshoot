@@ -20,6 +20,12 @@ class Materiel {
     return $this->conn->query($query);
   }
 
+  public function read_single(){
+    $query = 'SELECT * FROM ' . $this->table . ' WHERE id=' . $this->id;
+
+    return $this->conn->query($query);
+  }
+
   public function create(){
     $query = 'INSERT INTO ' . $this->table . ' (label, href) VALUES(:label, :href)';
 

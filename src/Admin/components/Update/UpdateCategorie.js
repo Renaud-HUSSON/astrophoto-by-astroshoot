@@ -11,6 +11,7 @@ const UpdateCategorie = ({section, id}) => {
 
   const categorieData = useFetchData(`http://localhost/astroshoot/api/${section}/read_single.php?id=${id}`)
   const categorie = !categorieData[1] ? categorieData[0].data[0] : ''
+  const oldname = !categorieData[1] ? categorie.nom : ''
 
   useEffect(() => {
     setData({
@@ -18,7 +19,8 @@ const UpdateCategorie = ({section, id}) => {
       'titre': categorie.titre,
       'nom': categorie.nom,
       'nombre': categorie.nom,
-      'image': categorie.image
+      'image': categorie.image,
+      'oldname': oldname
     })
   }, [categorie])
 

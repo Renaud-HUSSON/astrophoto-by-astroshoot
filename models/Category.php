@@ -54,13 +54,14 @@ class Category {
       'titre' => $this->titre,
       'nom' => $this->nom
     ))){
+      mkdir('../../src/images/' . $this->nom);
       return true;
     }else{
       return false;
     }
   }
 
-  public function update(){
+  public function update($old_name){
     $query = 'UPDATE ' . $this->table . ' SET titre=:titre, nom=:nom, image=:image WHERE id=:id';
 
     $req = $this->conn->prepare($query);
@@ -71,6 +72,7 @@ class Category {
       'nom' => $this->nom,
       'image' => $this->image
     ))){
+      rename('../../src/images/' . $old_name, '../../src/images/' . $this->nom);
       return true;
     }else{
       return false;

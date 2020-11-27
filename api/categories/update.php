@@ -17,16 +17,16 @@ $db = $database->connect();
 
 //Instantiate a new Category
 $category = new Category($db);
-parse_str(file_get_contents("php://input"), $data);
 
 //Verify params integrity
-$category->id = validate_param(isset($_POST['id']) ? $_POST['id'] : '');
-$category->titre = validate_param(isset($_POST['titre']) ? $_POST['titre'] : '');
-$category->nom = validate_param(isset($_POST['nom']) ? $_POST['nom'] : '');
-$category->image = validate_param(isset($_POST['image']) ? $_POST['image'] : '');
+$category->id = strip_tags(isset($_POST['id']) ? $_POST['id'] : '');
+$category->titre = strip_tags(isset($_POST['titre']) ? $_POST['titre'] : '');
+$category->nom = strip_tags(isset($_POST['nom']) ? $_POST['nom'] : '');
+$category->image = strip_tags(isset($_POST['image']) ? $_POST['image'] : '');
+$oldname = $_POST['oldname'];
 
 //Try to update the category
-if($category->update()){
+if($category->update($oldname)){
   echo json_encode(array('success' => 'La catégorie a bien été mise à jour !'));
 }else{
   echo json_encode(array('error' => 'Une erreur est survenue'));

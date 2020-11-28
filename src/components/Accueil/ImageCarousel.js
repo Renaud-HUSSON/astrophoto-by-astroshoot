@@ -21,9 +21,9 @@ const ImageCarousel = ({images}) => {
 
   return <div className="carousel">
     {images.map((item, index) => {
-      const src = item.src.replace(/(.*)([.](jpg|jpeg|png))/, '$1-thumbnail$2')
+      const src = item.src.replace(/^(.*)([.](jpg|jpeg|png))$/, '$1-thumbnail$2')
       return (
-          <img key={index} className="carousel-item" style={{transform: `translateX(${x}%)`}} src={`https://astrophoto-amateur.fr/${src}`} alt={item.titre} />
+        <img key={index} className="carousel-item" style={{transform: `translateX(${x}%)`}} src={`https://astrophoto-amateur.fr/${src}`} alt={item.titre} />
       )
     })}
     <FontAwesomeIcon onClick={goLeft} className="goLeft" icon={faChevronLeft} size="2x"/>

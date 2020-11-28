@@ -1,5 +1,6 @@
 import useFetchData from "../../../components/shared/Hooks/useFetchData";
 import Loading from "../../../components/shared/Loading";
+import DeleteCarousel from "./DeleteCarousel";
 import DeleteCategorie from "./DeleteCategorie";
 import DeleteImage from "./DeleteImage";
 import DeleteInfobox from "./DeleteInfobox";
@@ -21,6 +22,8 @@ const DeleteRenderSwitch = ({section ,id}) => {
       return !infoboxData[1] ? <DeleteInfobox section={section} id={id} nom={infobox.nom}/> : <Loading />
     case 'materiel':
       return <DeleteMateriel section={section} id={id}/>
+    case 'carousel_images':
+      return <DeleteCarousel section={section} id={id}/>
   
     default:
       return <p>404 Error</p>

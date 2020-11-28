@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react"
-
 import SubmitButton from '../shared/Forms/SubmitButton'
-import TextInput from '../shared/Forms/TextInput'
+import SelectInput from '../shared/Forms/SelectInput'
 
-const CreateCategorie = ({section}) => {
+const CreateCarousel = ({section}) => {
   const [correct, setCorrect] = useState(false)
   
   const [data, setData] = useState({
-    titre: '',
-    nom: ''
+    image: ''
   })
 
   useEffect(() => {
-    if(data.titre && data.nom){
+    if(data.image !== ''){
       setCorrect(true)
     }else{
       setCorrect(false)
@@ -24,10 +22,9 @@ const CreateCategorie = ({section}) => {
   }
 
   return <>
-    <TextInput onChange={handleChange} label="Titre" name="titre"/>
-    <TextInput onChange={handleChange} label="Nom" name="nom" />
+    <SelectInput onChange={handleChange} value="" name="image" label="Image" section="images" optionValue="id" optionTitle="titre"/>
     <SubmitButton correct={correct} section={section} data={data} mode="create"/>
   </>
 }
 
-export default CreateCategorie
+export default CreateCarousel

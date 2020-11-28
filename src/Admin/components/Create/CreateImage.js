@@ -19,7 +19,7 @@ const CreateImage = ({section}) => {
   })
 
   useEffect(() => {
-    if(data.titre && data.categorie && data.image !== "" && data.details){
+    if(data.titre && data.categorie && data.image !== ""){
       setCorrect(true)
     }else{
       setCorrect(false)

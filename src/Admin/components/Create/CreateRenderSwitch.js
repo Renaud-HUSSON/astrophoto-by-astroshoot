@@ -1,3 +1,4 @@
+import CreateCarousel from "./CreateCarousel";
 import CreateCategorie from "./CreateCategorie";
 import CreateImage from "./CreateImage";
 import CreateInfobox from "./CreateInfobox";
@@ -13,6 +14,8 @@ const CreateRenderSwitch = ({section}) => {
       return <CreateInfobox section={section}/>
     case 'materiel':
       return <CreateMateriel section={section}/>
+    case 'carousel_images':
+      return <CreateCarousel section={section}/>
   
     default:
       return <p>404 Error</p>

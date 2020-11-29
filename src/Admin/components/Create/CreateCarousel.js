@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import SubmitButton from '../shared/Forms/SubmitButton'
-import SelectInput from '../shared/Forms/SelectInput'
+import SubmitButton from '../../../components/shared/Forms/SubmitButton'
+import SelectInput from '../../../components/shared/Forms/SelectInput'
 
 const CreateCarousel = ({section}) => {
   const [correct, setCorrect] = useState(false)

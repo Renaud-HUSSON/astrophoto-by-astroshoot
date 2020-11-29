@@ -1,6 +1,6 @@
 import { useState } from "react"
-import SubmitButton from "../shared/Forms/SubmitButton"
-import TextInput from "../shared/Forms/TextInput"
+import SubmitButton from "../../../components/shared/Forms/SubmitButton"
+import TextInput from "../../../components/shared/Forms/TextInput"
 
 const CreateInfobox = ({section}) => {
   const [data, setData] = useState({

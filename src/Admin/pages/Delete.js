@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import DeleteRenderSwitch from "../components/Delete/DeleteRenderSwitch"
-import SimpleForm from "../components/shared/Forms/SimpleForm"
+import SimpleForm from "../../components/shared/Forms/SimpleForm"
 
 const Delete = () => {
   const params = useParams()

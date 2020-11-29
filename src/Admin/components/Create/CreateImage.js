@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import TextInput from '../shared/Forms/TextInput'
-import SelectInput from '../shared/Forms/SelectInput'
-import FileInput from '../shared/Forms/FileInput'
-import SubmitButton from '../shared/Forms/SubmitButton'
+import TextInput from '../../../components/shared/Forms/TextInput'
+import SelectInput from '../../../components/shared/Forms/SelectInput'
+import FileInput from '../../../components/shared/Forms/FileInput'
+import SubmitButton from '../../../components/shared/Forms/SubmitButton'
 
 const CreateImage = ({section}) => {
   const supportedFilesType = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'video/mp4']

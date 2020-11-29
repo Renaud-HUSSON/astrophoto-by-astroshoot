@@ -33,12 +33,14 @@ h1, h2, h3, h4, p {
 // import of partials
 @import './nav';
 @import './pages/accueil';
-@import './_footer.scss';
+@import './footer.scss';
 @import './pages/categorie';
 @import './pages/materiel';
 @import './pages/informations';
 @import './pages/imageDetails';
-@import './pages/calculs.scss';
+@import './pages/calculs';
 @import './modal';
 @import './loading';
-@import '../Admin//styles//admin';
+@import './form';
+@import './pages/login';
+@import '../Admin/styles/admin';

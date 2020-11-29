@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import CreateRenderSwitch from "../components/Create/CreateRenderSwitch"
-import SimpleForm from "../components/shared/Forms/SimpleForm"
+import SimpleForm from "../../components/shared/Forms/SimpleForm"
 
 const Create = () => {
   const section = useParams().section

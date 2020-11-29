@@ -1,9 +1,9 @@
-import TextInput from '../shared/Forms/TextInput'
+import { useEffect, useState } from 'react'
 import useFetchData from '../../../components/shared/Hooks/useFetchData'
 import Loading from '../../../components/shared/Loading'
-import SelectInput from '../shared/Forms/SelectInput'
-import { useEffect, useState } from 'react'
-import SubmitButton from '../shared/Forms/SubmitButton'
+import TextInput from '../../../components/shared/Forms/TextInput'
+import SelectInput from '../../../components/shared/Forms/SelectInput'
+import SubmitButton from '../../../components/shared/Forms/SubmitButton'
 
 const UpdateImage = ({section, id}) => {
   const [data, setData] = useState({})

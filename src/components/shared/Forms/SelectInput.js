@@ -1,5 +1,5 @@
-import useFetchData from "../../../../components/shared/Hooks/useFetchData"
-import Loading from "../../../../components/shared/Loading"
+import useFetchData from "../Hooks/useFetchData"
+import Loading from "../Loading"
 
 const SelectInput = ({label, value, name, section, optionValue, optionTitle, fichier="read", condition="", onChange=""}) => {
   const sectionData = useFetchData(`http://localhost/astroshoot/api/${section}/${fichier}.php${condition}`)

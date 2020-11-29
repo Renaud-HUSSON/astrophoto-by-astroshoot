@@ -1,9 +1,9 @@
-import TextInput from '../shared/Forms/TextInput'
+import TextInput from '../../../components/shared/Forms/TextInput'
 import useFetchData from '../../../components/shared/Hooks/useFetchData'
 import Loading from '../../../components/shared/Loading'
-import SelectInput from '../shared/Forms/SelectInput'
+import SelectInput from '../../../components/shared/Forms/SelectInput'
 import { useEffect, useState } from 'react'
-import SubmitButton from '../shared/Forms/SubmitButton'
+import SubmitButton from '../../../components/shared/Forms/SubmitButton'
 
 
 const UpdateCategorie = ({section, id}) => {
@@ -22,7 +22,7 @@ const UpdateCategorie = ({section, id}) => {
       'image': categorie.image,
       'oldname': oldname
     })
-  }, [categorie])
+  }, [categorie, oldname])
 
   const handleChange = (e) => {
     setData({...data, [e.target.name]: e.target.value})

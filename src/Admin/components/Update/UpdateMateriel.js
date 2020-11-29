@@ -1,8 +1,8 @@
-import TextInput from '../shared/Forms/TextInput'
+import { useEffect, useState } from 'react'
 import useFetchData from '../../../components/shared/Hooks/useFetchData'
 import Loading from '../../../components/shared/Loading'
-import { useEffect, useState } from 'react'
-import SubmitButton from '../shared/Forms/SubmitButton'
+import TextInput from '../../../components/shared/Forms/TextInput'
+import SubmitButton from '../../../components/shared/Forms/SubmitButton'
 
 const UpdateMateriel = ({section, id}) => {
   const [data, setData] = useState({})

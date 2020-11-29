@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import SimpleForm from "../components/shared/Forms/SimpleForm"
+import SimpleForm from "../../components/shared/Forms/SimpleForm"
 import UpdateRenderSwitch from '../components/Update/UpdateRenderSwitch'
 
 const Update = () => {

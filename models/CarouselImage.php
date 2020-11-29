@@ -13,7 +13,7 @@ class CarouselImage {
 
   public function read() {
     $query = 'SELECT ' . $this->table . '.*, images.titre as titre, images.src as src FROM ' . $this->table . ', images
-              WHERE ' . $this->table . '.image=images.id';
+              WHERE ' . $this->table . '.image=images.id ORDER BY id ASC';
 
     return $this->conn->query($query);
   }

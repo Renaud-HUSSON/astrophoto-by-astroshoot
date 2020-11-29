@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import useFetchData from "../../../components/shared/Hooks/useFetchData"
 import Loading from "../../../components/shared/Loading"
-import SubmitButton from "../shared/Forms/SubmitButton"
-import SelectInput from '../shared/Forms/SelectInput'
-import TextInput from '../shared/Forms/TextInput'
+import SubmitButton from "../../../components/shared/Forms/SubmitButton"
+import SelectInput from '../../../components/shared/Forms/SelectInput'
+import TextInput from '../../../components/shared/Forms/TextInput'
 
 const UpdateCarousel = ({section, id}) => {
   const [data, setData] = useState({})

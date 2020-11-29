@@ -53,9 +53,9 @@ const ImageDetails = () => {
     </div>
     <div className="image-details-container">
       <h1>Détails</h1>
-      <p>
+      <pre>
         {image.details}
-      </p>
+      </pre>
     </div>
     <Modal modalOpened={modalOpened} setModalOpened={setModalOpened}>
       { image.src.match(/[.]mp4/)

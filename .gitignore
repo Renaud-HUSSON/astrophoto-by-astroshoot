@@ -6,3 +6,7 @@
 
 #Images
 /src/images
+
+/utils/variables.php
+
+.env

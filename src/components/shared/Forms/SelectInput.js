@@ -2,7 +2,7 @@ import useFetchData from "../Hooks/useFetchData"
 import Loading from "../Loading"
 
 const SelectInput = ({label, value, name, section, optionValue, optionTitle, fichier="read", condition="", onChange=""}) => {
-  const sectionData = useFetchData(`http://localhost/astroshoot/api/${section}/${fichier}.php${condition}`)
+  const sectionData = useFetchData(`${process.env.REACT_APP_URL}api/${section}/${fichier}.php${condition}`)
   const data = !sectionData[1] ? sectionData[0].data : ''
   
   const current = !sectionData[1] 

@@ -10,10 +10,9 @@ import {fadeIn} from '../animations/fade'
 import useFetchData from '../components/shared/Hooks/useFetchData'
 
 const Accueil = () => {
+  const categories = useFetchData(`${process.env.REACT_APP_URL}api/categories/read_image.php`)
 
-  const categories = useFetchData('http://localhost/astroshoot/api/categories/read_image.php')
-
-  const carouselImages = useFetchData('http://localhost/astroshoot/api/carousel_images/read.php')
+  const carouselImages = useFetchData(`${process.env.REACT_APP_URL}api/carousel_images/read.php`)
 
   const fadeAnim = fadeIn();
 

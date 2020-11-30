@@ -7,7 +7,7 @@ import Loading from '../../../components/shared/Loading'
 const UpdateInfobox = ({section, id}) => {
   const [data, setData] = useState({})
 
-  const infoboxData = useFetchData(`http://localhost/astroshoot/api/${section}/read.php`)
+  const infoboxData = useFetchData(`${process.env.REACT_APP_URL}/api/${section}/read.php`)
   const infobox = !infoboxData[1] 
   ? infoboxData[0].data.filter(infobox => infobox.id === id)[0]
   : ''

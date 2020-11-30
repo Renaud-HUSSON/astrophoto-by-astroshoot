@@ -11,7 +11,7 @@ import Loading from '../components/shared/Loading'
 const Materiel = () => {
   const fadeAnimation = fadeIn()
 
-  const materiel = useFetchData('http://localhost/astroshoot/api/materiel/read.php');
+  const materiel = useFetchData(`${process.env.REACT_APP_URL}/api/materiel/read.php`);
   
   return <motion.div variants={fadeAnimation} animate="visible" initial="hidden" exit="exit" className="materiel-container">
     <h1>Mon matériel</h1>

@@ -5,7 +5,7 @@ import SubmitDeleteButton from '../../../components/shared/Forms/SubmitDeleteBut
 
 const DeleteImage = ({section, id}) => {
   
-  const data = useFetchData(`http://localhost/astroshoot/api/${section}/read_single.php?id=${id}`)
+  const data = useFetchData(`${process.env.REACT_APP_URL}/api/${section}/read_single.php?id=${id}`)
   const imageData = !data[1] ? data[0].data[0] : ''
 
   return !data[1]

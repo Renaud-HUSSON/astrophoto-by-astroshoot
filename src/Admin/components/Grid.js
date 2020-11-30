@@ -6,7 +6,7 @@ import GridTable from './Grid/GridTable'
 const Grid = () => {
   const section = useParams().section
   
-  const url = `http://localhost/astroshoot/api/${section}/read.php`
+  const url = `${process.env.REACT_APP_URL}api/${section}/read.php`
 
   const apiDatas = useFetchData(url)
 

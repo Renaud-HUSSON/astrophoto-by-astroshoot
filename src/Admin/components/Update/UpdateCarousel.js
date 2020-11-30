@@ -8,7 +8,7 @@ import TextInput from '../../../components/shared/Forms/TextInput'
 const UpdateCarousel = ({section, id}) => {
   const [data, setData] = useState({})
 
-  const carouselData = useFetchData(`http://localhost/astroshoot/api/${section}/read_single.php?id=${id}`)
+  const carouselData = useFetchData(`${process.env.REACT_APP_URL}/api/${section}/read_single.php?id=${id}`)
   const carousel = !carouselData[1] ? carouselData[0].data[0] : ''
 
   useEffect(() => {

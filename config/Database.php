@@ -1,10 +1,13 @@
 <?php
+
+include_once(__DIR__ . '/../utils/variables.php');
+
 class Database {
   //DB params
-  private $host = 'localhost';
-  private $db_name = 'astroshoot';
-  private $username = 'root';
-  private $password = '';
+  private $host = DBHOST;
+  private $db_name = DBNAME;
+  private $username = DBUSERNAME;
+  private $password = DBPASSWORD;
   private $conn;
 
   //DB connect

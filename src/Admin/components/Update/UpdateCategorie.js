@@ -9,7 +9,7 @@ import SubmitButton from '../../../components/shared/Forms/SubmitButton'
 const UpdateCategorie = ({section, id}) => {
   const [data, setData] = useState({})
 
-  const categorieData = useFetchData(`http://localhost/astroshoot/api/${section}/read_single.php?id=${id}`)
+  const categorieData = useFetchData(`${process.env.REACT_APP_URL}/api/${section}/read_single.php?id=${id}`)
   const categorie = !categorieData[1] ? categorieData[0].data[0] : ''
   const oldname = !categorieData[1] ? categorie.nom : ''
 

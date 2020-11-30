@@ -7,7 +7,7 @@ import SubmitButton from '../../../components/shared/Forms/SubmitButton'
 const UpdateMateriel = ({section, id}) => {
   const [data, setData] = useState({})
 
-  const materielData = useFetchData(`http://localhost/astroshoot/api/${section}/read_single.php?id=${id}`)
+  const materielData = useFetchData(`${process.env.REACT_APP_URL}/api/${section}/read_single.php?id=${id}`)
   const materiel = !materielData[1] ? materielData[0].data[0] :''
 
   useEffect(() => setData({...materiel}), [materiel])

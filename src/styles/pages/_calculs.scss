@@ -35,6 +35,10 @@
   .calcul-container {
     flex-direction:  column;
 
+    .calcul-read, .calcul-write {
+      margin-left: 5vw;
+    }
+
     .input-container {
       width: 60vw;
     }

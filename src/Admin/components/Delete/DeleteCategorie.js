@@ -4,7 +4,7 @@ import Loading from "../../../components/shared/Loading"
 import SubmitDeleteButton from "../../../components/shared/Forms/SubmitDeleteButton"
 
 const DeleteCategorie = ({section, id}) => {
-  const categorieData = useFetchData(`http://localhost/astroshoot/api/${section}/read_single.php?id=${id}`)
+  const categorieData = useFetchData(`${process.env.REACT_APP_URL}/api/${section}/read_single.php?id=${id}`)
   const categorie = !categorieData[1] ? categorieData[0].data[0] : ''
 
   return !categorieData[1]

@@ -3,7 +3,7 @@ import useFetchData from '../shared/Hooks/useFetchData'
 import Loading from '../shared/Loading'
 
 const ImageInfobox = ({nom, image}) => {
-  const data = useFetchData(`http://localhost/astroshoot/api/infobox/read_single.php?nom=${nom}`)
+  const data = useFetchData(`${process.env.REACT_APP_URL}api/infobox/read_single.php?nom=${nom}`)
   const keys = !data[1]? Array.from(Object.keys(data[0].data[0])).slice(2) : '';
 
   return !data[1]

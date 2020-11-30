@@ -10,7 +10,7 @@ const SubmitDeleteButton = ({section, id}) => {
     e.preventDefault()
     setLoading(true)
 
-    const update = await fetch(`http://localhost/astroshoot/api/${section}/delete.php?id=${id}&categorie=${section}`)
+    const update = await fetch(`${process.env.REACT_APP_URL}api/${section}/delete.php?id=${id}&categorie=${section}`)
 
     const json = await update.json()
     setLoading(false)

@@ -6,7 +6,7 @@ import {motion} from "framer-motion"
 
 const CardCarousel = ({cards}) => {
   return <div className="card-carousel-container"> 
-    <ScrollContainer hideScrollbars={false} className="carousel">
+    <ScrollContainer vertical={false} hideScrollbars={false} className="carousel">
       {cards[0].map((card, i) => {
         const variants = {
           visible: {opacity: 1, y: 0, transition: {ease: "easeIn", duration: 0.3, delay: 0.3 + i*0.1}},

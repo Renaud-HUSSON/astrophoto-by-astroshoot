@@ -17,7 +17,7 @@ import { AnimatePresence } from "framer-motion"
 
 const RouteSwitch = () => {
   const location = useLocation()
-  const categories = useFetchData('http://localhost/astroshoot/api/categories/read.php')
+  const categories = useFetchData(`${process.env.REACT_APP_URL}api/categories/read.php`)
 
   return <RedirectContextProvider>
     <AnimatePresence exitBeforeEnter>

@@ -4,7 +4,7 @@ import Loading from "../../../components/shared/Loading"
 import SubmitDeleteButton from '../../../components/shared/Forms/SubmitDeleteButton'
 
 const DeleteCarousel = ({section, id}) => {
-  const carouselData = useFetchData(`http://localhost/astroshoot/api/${section}/read_single.php?id=${id}`)
+  const carouselData = useFetchData(`${process.env.REACT_APP_URL}/api/${section}/read_single.php?id=${id}`)
   const carousel = !carouselData[1] ? carouselData[0].data[0] : ''
 
   return !carouselData[1]

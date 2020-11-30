@@ -6,11 +6,17 @@ import { Route, Switch } from 'react-router-dom'
 import Create from './pages/Create'
 import Delete from './pages/Delete'
 import { fadeIn } from '../animations/fade'
+import { useContext } from 'react'
+import NotFound from '../components/shared/NotFound'
+import {AuthContext} from '../components/shared/Context/AuthContext'
 
 const Admin = () => {
   const pageTransition = fadeIn()
 
-  return <motion.div variants={pageTransition} animate="visible" initial="hidden" exit="exit" className="Admin">
+  const [auth] = useContext(AuthContext)
+
+  return auth 
+  ?<motion.div variants={pageTransition} animate="visible" initial="hidden" exit="exit" className="Admin">
     <div className="admin-nav">
       <h1>Admin</h1>
       <AdminNav />
@@ -24,6 +30,7 @@ const Admin = () => {
       </Switch>
     </div>
   </motion.div>
+  :<NotFound />
 }
 
 export default Admin

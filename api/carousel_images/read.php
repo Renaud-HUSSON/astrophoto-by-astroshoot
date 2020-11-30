@@ -1,6 +1,8 @@
 <?php
 
-header('Access-Control-Allow-Origin: http://localhost:3000');
+include_once(__DIR__ . "/../../utils/variables.php");
+
+header('Access-Control-Allow-Origin: ' . URL);
 header('Content-Type: application/json');
 
 include_once '../../models/CarouselImage.php';

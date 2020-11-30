@@ -8,7 +8,7 @@ import DeleteMateriel from "./DeleteMateriel";
 
 const DeleteRenderSwitch = ({section ,id}) => {
   //Getting all infoboxes to get the one with the matching id and passing it down to DeleteInfobox
-  const infoboxData = useFetchData(`http://localhost/astroshoot/api/${section}/read.php`)
+  const infoboxData = useFetchData(`${process.env.REACT_APP_URL}/api/${section}/read.php`)
   const infobox = !infoboxData[1] 
   ? infoboxData[0].data.filter(infobox => infobox.id === id)[0]
   : ''

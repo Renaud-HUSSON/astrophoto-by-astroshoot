@@ -22,7 +22,7 @@ const SubmitButton = ({data, section, mode, succeed = () => '', correct=true, re
       body: form
     }
 
-    const query = await fetch(`http://localhost/astroshoot/api/${section}/${mode}.php`, options)
+    const query = await fetch(`${process.env.REACT_APP_URL}api/${section}/${mode}.php`, options)
 
     const json = await query.json()
     setLoading(false)

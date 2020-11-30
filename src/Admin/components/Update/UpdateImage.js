@@ -8,7 +8,7 @@ import SubmitButton from '../../../components/shared/Forms/SubmitButton'
 const UpdateImage = ({section, id}) => {
   const [data, setData] = useState({})
   
-  const imageData = useFetchData(`http://localhost/astroshoot/api/${section}/read_single.php?id=${id}`)
+  const imageData = useFetchData(`${process.env.REACT_APP_URL}/api/${section}/read_single.php?id=${id}`)
   const image = !imageData[1] ? imageData[0].data[0] : ''
   
   useEffect(() => setData({...image}), [image])

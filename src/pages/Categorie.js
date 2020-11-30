@@ -10,7 +10,7 @@ import useFetchData from '../components/shared/Hooks/useFetchData'
 const Categorie = ({categorie, title}) => {
   const fadeAnim = fadeIn()
 
-  const images = useFetchData(`http://localhost/astroshoot/api/images/read_category.php?category=${categorie}`)
+  const images = useFetchData(`${process.env.REACT_APP_URL}api/images/read_category.php?category=${categorie}`)
 
   return <motion.div variants={fadeAnim} animate="visible" initial="hidden" exit="exit" className="categorie-container">
     <h1>{title}</h1>

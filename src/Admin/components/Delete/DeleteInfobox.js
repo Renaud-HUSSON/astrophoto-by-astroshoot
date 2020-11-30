@@ -6,7 +6,7 @@ import SubmitDeleteButton from "../../../components/shared/Forms/SubmitDeleteBut
 const DeleteInfobox = ({section, id, nom}) => {
   
   //Get the single infobox
-  const infoboxData = useFetchData(`http://localhost/astroshoot/api/${section}/read_single.php?nom=${nom}`)
+  const infoboxData = useFetchData(`${process.env.REACT_APP_URL}/api/${section}/read_single.php?nom=${nom}`)
   const infobox = !infoboxData[1] ? infoboxData[0].data[0] : ''
 
   return !infoboxData[1]

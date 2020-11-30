@@ -7,7 +7,6 @@ export const RedirectContextProvider = ({children}) => {
 
   useEffect(() => {
     if(redirect){
-      console.log("redirect")
       setRedirect(false)
     }
   }, [redirect, setRedirect])

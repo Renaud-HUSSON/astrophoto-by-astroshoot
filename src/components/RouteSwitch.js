@@ -10,7 +10,6 @@ import Informations from "../pages/Informations"
 import Calculs from "../pages/Calculs"
 import useFetchData from "./shared/Hooks/useFetchData"
 import Login from "../pages/Login"
-import PrivateRoute from './shared/Routes/PrivateRoute'
 //Context
 import { RedirectContextProvider } from "./shared/Context/RedirectContext"
 import NotFound from "./shared/NotFound"
@@ -25,7 +24,7 @@ const RouteSwitch = () => {
       <Switch location={location} key={location.key}>
         <Route path="/" exact component={Accueil} />
         <Route path="/login" exact component={Login}/>
-        <PrivateRoute path="/admin" component={Admin}/>
+        <Route path="/admin" component={Admin}/>
         {
           !categories[1] 
           ? categories[0]['data'].map((categorie) => {

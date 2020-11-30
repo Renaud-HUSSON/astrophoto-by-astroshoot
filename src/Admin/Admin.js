@@ -5,13 +5,12 @@ import {motion} from 'framer-motion'
 import { Route, Switch } from 'react-router-dom'
 import Create from './pages/Create'
 import Delete from './pages/Delete'
-import { useContext } from 'react'
-import { AuthContext } from '../components/shared/Context/AuthContext'
+import { fadeIn } from '../animations/fade'
 
 const Admin = () => {
-  const [auth] = useContext(AuthContext)
+  const pageTransition = fadeIn()
 
-  return <motion.div className="Admin" exit=' '>
+  return <motion.div variants={pageTransition} animate="visible" initial="hidden" exit="exit" className="Admin">
     <div className="admin-nav">
       <h1>Admin</h1>
       <AdminNav />

@@ -9,11 +9,9 @@ const PrivateRoute = ({path, component}) => {
   
   return <Route path={path}>
     {
-      () => (
-        auth 
-        ? component
-        : <NotFound />
-      )
+      auth 
+      ? component
+      : <NotFound />
     }
   </Route>
 }

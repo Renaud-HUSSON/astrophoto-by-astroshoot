@@ -1,3 +1,5 @@
+import NotFound from "../NotFound"
+
 const { useContext } = require("react")
 const { Route, Redirect } = require("react-router-dom")
 const { AuthContext } = require("../Context/AuthContext")
@@ -9,7 +11,7 @@ const PrivateRoute = ({path, component}) => {
     {
       auth 
       ? component
-      : <Redirect to="/login"/>
+      : <NotFound />
     }
   </Route>
 }

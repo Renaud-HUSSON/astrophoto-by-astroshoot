@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import { Redirect } from "react-router-dom"
 import { RedirectContext } from "../Context/RedirectContext"
 
-const SubmitButton = ({data, section, mode, succeed = () => '', correct=true, redirectPath=`admin/${section}`}) => {
+const SubmitButton = ({data, section, mode, succeed = () => '', correct=true, redirectPath=`/admin/${section}`}) => {
   const [loading, setLoading] = useState(false)
 
   const [redirect, setRedirect] = useContext(RedirectContext)

@@ -1,9 +1,12 @@
-import React from 'react'
-import useWindowSize from '../shared/Hooks/useWindowSize'
+import React, { useContext } from 'react'
 import {Link} from 'react-router-dom'
+import useWindowSize from '../shared/Hooks/useWindowSize'
 import icon from '../../images/icon.png'
+import {AuthContext} from '../shared/Context/AuthContext'
 
 const PrimaryNav = React.memo(({handleNav, primaryNav, setPrimaryNav, closeNav}) => {
+  const [auth] = useContext(AuthContext)
+
   //Window width, updates whenever the window resizes
   const windowWidth = useWindowSize().width
 
@@ -28,6 +31,11 @@ const PrimaryNav = React.memo(({handleNav, primaryNav, setPrimaryNav, closeNav})
     </div>
     <div className={`right-side ${windowWidth <= 768 ? primaryNav ? "active" : "" : ""}`}>
       <ul>
+        {
+          auth
+          ?<li><Link to="/admin">Admin</Link></li>
+          : ''
+        }
         <li><Link to="/">Accueil</Link></li>
         <li className="image-categorie" onClick={handleNav}>Images</li>
         <li><Link to="/materiel">Matériel</Link></li>

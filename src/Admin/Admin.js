@@ -5,8 +5,12 @@ import {motion} from 'framer-motion'
 import { Route, Switch } from 'react-router-dom'
 import Create from './pages/Create'
 import Delete from './pages/Delete'
+import { useContext } from 'react'
+import { AuthContext } from '../components/shared/Context/AuthContext'
 
 const Admin = () => {
+  const [auth] = useContext(AuthContext)
+
   return <motion.div className="Admin" exit=' '>
     <div className="admin-nav">
       <h1>Admin</h1>

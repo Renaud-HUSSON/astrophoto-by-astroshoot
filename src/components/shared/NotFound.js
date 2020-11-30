@@ -1,10 +1,15 @@
+import { motion } from "framer-motion"
+import { fadeIn } from "../../animations/fade"
+
 const NotFound = () => {
-  return <div className="not-found-container">
+  const pageTransition = fadeIn()
+
+  return <motion.div variants={pageTransition} animate="visible" initial="hidden" exit="exit" className="not-found-container">
     <div className="not-found">
       <h1>404</h1>
       <p>PAGE NOT FOUND</p>
     </div>
-  </div>
+  </motion.div>
 }
 
 export default NotFound

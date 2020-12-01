@@ -10,3 +10,4 @@
 /utils/variables.php
 
 .env
+/vendor/

@@ -1,4 +1,4 @@
-import { Link, Redirect } from "react-router-dom"
+import { Link } from "react-router-dom"
 import useFetchData from "../../../components/shared/Hooks/useFetchData"
 import Loading from "../../../components/shared/Loading"
 import SubmitDeleteButton from '../../../components/shared/Forms/SubmitDeleteButton'

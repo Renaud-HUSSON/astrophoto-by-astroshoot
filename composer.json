@@ -6,6 +6,7 @@
             "email": "renaudhusson09@gmail.com"
         }
     ],
+    "description": "Code source de astroshoot",
     "require": {
         "phpmailer/phpmailer": "^6.2"
     }

@@ -49,7 +49,7 @@ if($num>0){
   }
   echo json_encode($materiel_arr);
 }else{
-  HTTPStatus(500);
+  HTTPStatus(404);
   echo json_encode(array(
     'message' => 'Aucun matériel trouvé'
   ));

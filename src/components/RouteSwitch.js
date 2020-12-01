@@ -14,9 +14,15 @@ import Login from "../pages/Login"
 import { RedirectContextProvider } from "./shared/Context/RedirectContext"
 import NotFound from "./shared/NotFound"
 import { AnimatePresence } from "framer-motion"
+import { useEffect } from "react"
 
 const RouteSwitch = () => {
   const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location])
+
   const categories = useFetchData(`${process.env.REACT_APP_URL}api/categories/read.php`)
 
   return <RedirectContextProvider>

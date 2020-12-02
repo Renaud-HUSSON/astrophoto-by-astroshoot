@@ -1,10 +1,9 @@
 import { useContext, useState } from "react"
 import { Redirect } from "react-router-dom"
-import {RedirectContext} from '../Context/RedirectContext'
 
 const SubmitDeleteButton = ({section, id}) => {
   const [loading, setLoading] = useState(false)
-  const [redirect, setRedirect] = useContext(RedirectContext)
+  const [redirect, setRedirect] = useState(false)
 
   const handleClick = async (e) => {
     e.preventDefault()

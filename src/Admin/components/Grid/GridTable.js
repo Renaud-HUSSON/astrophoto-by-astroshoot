@@ -2,7 +2,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPen, faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 import {Link} from 'react-router-dom'
 
-const GridTable = ({data, section}) => {
+const GridTable = ({data, section, modify = section === 'newsletter' ? false : true}) => {
   return <table>
       <thead>
         <tr>
@@ -23,9 +23,13 @@ const GridTable = ({data, section}) => {
                   && <td key={i}>{row[element]}</td>
                 })
               }
-              <td>
-                <Link to={`/admin/${section}/update/${row.id}`}><FontAwesomeIcon className='update' icon={faPen} /></Link>
-              </td>
+              {
+                modify
+                ?<td>
+                  <Link to={`/admin/${section}/update/${row.id}`}><FontAwesomeIcon className='update' icon={faPen} /></Link>
+                </td>
+                : <></>
+              }
               <td>
                 <Link to={`/admin/${section}/delete/${row.id}`}><FontAwesomeIcon className='delete' icon={faTrashAlt} /></Link>
               </td>

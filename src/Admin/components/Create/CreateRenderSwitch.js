@@ -3,6 +3,7 @@ import CreateCategorie from "./CreateCategorie";
 import CreateImage from "./CreateImage";
 import CreateInfobox from "./CreateInfobox";
 import CreateMateriel from "./CreateMateriel";
+import CreateNewsletter from "./CreateNewsletter";
 
 const CreateRenderSwitch = ({section}) => {
   switch (section) {
@@ -16,6 +17,8 @@ const CreateRenderSwitch = ({section}) => {
       return <CreateMateriel section={section}/>
     case 'carousel_images':
       return <CreateCarousel section={section}/>
+    case 'newsletter':
+      return <CreateNewsletter section={section}/>
   
     default:
       return <p>404 Error</p>

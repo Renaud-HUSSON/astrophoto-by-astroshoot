@@ -12,7 +12,7 @@ function send_mail($message, $destinataires, $subject){
   
   try {
       //Server settings
-      $mail->SMTPDebug = SMTP::DEBUG_SERVER;                     
+      // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                     
       $mail->isSMTP();                                            
       $mail->Host       = EMAILHOST;                    
       $mail->SMTPAuth   = true;                                   

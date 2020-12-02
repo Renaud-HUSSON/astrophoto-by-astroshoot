@@ -1,14 +1,31 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { useState } from 'react'
+import SubmitButton from './Forms/SubmitButton'
+import { useLocation } from 'react-router-dom'
 
 const Footer = () => {
+  const [data, setData] = useState({})
+  const [correct, setCorrect] = useState(false)
+
+  const location = useLocation();
+
+  const handleInput = (e) => {
+    if(e.target.value){
+      setCorrect(true)
+    }else{
+      setCorrect(false)
+    }
+    setData({...data, [e.target.name]: e.target.value})
+  }
+
   return <footer>
     <div className="line"></div>
     <div className="footer-content">
       <form className="newsletter">
         <label htmlFor="newsletter-input">Inscrivez vous à notre newsletter</label><br/>
-        <input type="email" placeholder="Votre adresse e-mail" name="newsletter-input" id="newsletter-input"/><br/>
-        <button>Valider</button>
+        <input onChange={handleInput} type="email" placeholder="Votre adresse e-mail" name="newsletter-email" id="newsletter-input"/><br/>
+        <SubmitButton redirectPath={location.pathname} mode="create" section="newsletter" data={data} correct={correct}/>
       </form>
       <div className="contact">
         <h3>Me contacter</h3>

@@ -21,16 +21,24 @@ $db = $database->connect();
 $newsletter = new Newsletter($db);
 
 //Assign newsletter propertie if param is valid
-$newsletter->email = validate_param($_POST['email']);
+$newsletter->email = validate_param($_POST['newsletter-email']);
 
-//Try to create the newsletter
-if($newsletter->create()){
-  echo json_encode(array(
-    'success' => 'Vous êtes maintenant inscris à notre newsletter !'
-  ));
+//Verify that the user isn't already subscribed to to newsletter
+if($newsletter->read_single()->rowCount() == 0){
+  //Try to create the newsletter
+  if($newsletter->create()){
+    echo json_encode(array(
+      'success' => 'Vous êtes maintenant inscris à notre newsletter !'
+    ));
+  }else{
+    HTTPStatus(500);
+    echo json_encode(array(
+      'error' => 'L\'ajout de l\'adresse email à la newsletter a échoué'
+    ));
+  }
 }else{
-  HTTPStatus(500);
+  HTTPStatus(409);
   echo json_encode(array(
-    'error' => 'L\'ajout de l\'adresse email à la newsletter a échoué'
+    'error' => 'Vous êtes déjà inscris à notre newsletter'
   ));
 }

@@ -19,6 +19,16 @@ class Newsletter {
     return $this->conn->query($query);
   }
 
+  public function read_single(){
+    if($this->id){
+      $query = 'SELECT * FROM ' . $this->table . ' WHERE id=' . $this->id;
+    }else{
+      $query = 'SELECT * FROM ' . $this->table . ' WHERE email="' . $this->email . '"';
+    }
+    
+    return $this->conn->query($query);
+  }
+
   public function create(){
     $query = 'INSERT INTO ' . $this->table . ' (email) VALUES (:email)';
 

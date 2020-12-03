@@ -20,3 +20,9 @@
 .flash-error {
   background: rgba(246, 60, 60, 0.9);  
 }
+
+@media screen and (max-width: 768px){
+  .flash {
+    width: 95vw;
+  }
+}

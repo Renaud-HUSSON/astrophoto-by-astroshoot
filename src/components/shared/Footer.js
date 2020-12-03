@@ -10,8 +10,10 @@ const Footer = () => {
 
   const location = useLocation();
 
+  const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+
   const handleInput = (e) => {
-    if(e.target.value){
+    if(e.target.value && e.target.value.match(emailRegex)){
       setCorrect(true)
     }else{
       setCorrect(false)

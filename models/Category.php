@@ -54,7 +54,7 @@ class Category {
       'titre' => $this->titre,
       'nom' => $this->nom
     ))){
-      mkdir('../../src/images/' . $this->nom);
+      mkdir('../../images/' . $this->nom);
       return true;
     }else{
       return false;
@@ -72,7 +72,7 @@ class Category {
       'nom' => $this->nom,
       'image' => $this->image
     ))){
-      rename('../../src/images/' . $old_name, '../../src/images/' . $this->nom);
+      rename('../../images/' . $old_name, '../../images/' . $this->nom);
       return true;
     }else{
       return false;

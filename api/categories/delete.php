@@ -34,7 +34,7 @@ if($result->rowCount() != 0){
 }
 
 if($category->delete()){
-  rmdir('../../src/images/' . $deleted);
+  rmdir('../../images/' . $deleted);
   echo json_encode(array('success' => 'La catégorie a bien été supprimée'));
 }else{
   HTTPStatus(500);

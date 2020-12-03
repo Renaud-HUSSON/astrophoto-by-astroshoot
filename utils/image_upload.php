@@ -2,7 +2,7 @@
 
 //File extension or empty files are already checked with javascript
 function image_upload($file, $image_type, $image){
-  $repertory_path = '../../src/images/' . $image_type . '/';
+  $repertory_path = '../../images/' . $image_type . '/';
   $file_name = basename($file['name']);
 
   //Target directory & name for the uploaded image

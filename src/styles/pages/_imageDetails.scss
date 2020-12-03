@@ -89,12 +89,24 @@
     .image-container {
       flex-direction: column;
 
-      > div {
+      .image, .image-informations-container {
         width: 100%;
       }
       .image-informations-container {
         margin: 2rem 0rem;
       }
+    }
+    .image-details-container {
+      overflow-x: scroll;
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .image-details {
+    h1 {
+      font-size: 2rem;
     }
   }
 }

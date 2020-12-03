@@ -1,9 +1,11 @@
 import { useContext, useState } from "react"
 import { Redirect } from "react-router-dom"
+import { FlashContext } from "../Context/FlashContext"
 
 const SubmitDeleteButton = ({section, id}) => {
   const [loading, setLoading] = useState(false)
   const [redirect, setRedirect] = useState(false)
+  const [, setFlash] = useContext(FlashContext)
 
   const handleClick = async (e) => {
     e.preventDefault()
@@ -13,6 +15,7 @@ const SubmitDeleteButton = ({section, id}) => {
 
     const json = await update.json()
     setLoading(false)
+    setFlash({active: true, type:Object.keys(json)[0], message: json[Object.keys(json)[0]]})
     console.log(json)
     setRedirect(true);
   }

@@ -1,0 +1,22 @@
+.flash {
+  position: fixed;
+  top: 5vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  width: 50vw;
+  z-index: 1000;
+  
+  p {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.flash-success {
+  background: rgba(40, 170, 40, 0.9);    
+}
+
+.flash-error {
+  background: rgba(246, 60, 60, 0.9);  
+}

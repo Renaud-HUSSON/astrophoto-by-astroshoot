@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { useState } from 'react'
 import SubmitButton from './Forms/SubmitButton'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const Footer = () => {
   const [data, setData] = useState({})
@@ -26,7 +26,8 @@ const Footer = () => {
     <div className="footer-content">
       <form className="newsletter">
         <label htmlFor="newsletter-input">Inscrivez vous à notre newsletter</label><br/>
-        <input onChange={handleInput} type="email" placeholder="Votre adresse e-mail" name="newsletter-email" id="newsletter-input"/><br/>
+        <Link to="/newsletter">Se désinscrire</Link>
+        <input onChange={handleInput} type="email" placeholder="Votre adresse e-mail" name="newsletter_email" id="newsletter-input"/><br/>
         <SubmitButton redirectPath={location.pathname} mode="create" section="newsletter" data={data} correct={correct}/>
       </form>
       <div className="contact">

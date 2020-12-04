@@ -14,6 +14,7 @@ import Login from "../pages/Login"
 import NotFound from "./shared/NotFound"
 import { AnimatePresence } from "framer-motion"
 import { useEffect } from "react"
+import Newsletter from "../pages/Newsletter"
 
 const RouteSwitch = () => {
   const location = useLocation()
@@ -42,6 +43,7 @@ const RouteSwitch = () => {
       <Route path="/materiel" exact component={Materiel} />
       <Route path="/informations" exact component={Informations}/>
       <Route path="/calculs" exact component={Calculs}/>
+      <Route path="/newsletter" exact component={Newsletter}/>
       <Route component={NotFound}/>
     </Switch>
   </AnimatePresence>

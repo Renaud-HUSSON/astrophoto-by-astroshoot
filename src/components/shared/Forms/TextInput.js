@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const TextInput = ({label, value, name, disabled = false, multiline = false, onChange='', type='text'}) => {
+const TextInput = ({label, value, name, disabled = false, multiline = false, onChange='', type='text', placeholder=""}) => {
   const area = useRef(null)
   
   const textareaResize = (textarea) => {
@@ -23,7 +23,7 @@ const TextInput = ({label, value, name, disabled = false, multiline = false, onC
     <label htmlFor={name}>{label}</label><br/>
      {multiline 
      ?<textarea onChange={handleTextareaChange} ref={area} id={name} name={name} defaultValue={value} disabled={disabled ? true : false} />
-     :<input onChange={onChange} type={type} id={name} name={name} defaultValue={value} disabled={disabled ? true : false} />
+     :<input placeholder={placeholder} onChange={onChange} type={type} id={name} name={name} defaultValue={value} disabled={disabled ? true : false} />
     }
   </div>
 }

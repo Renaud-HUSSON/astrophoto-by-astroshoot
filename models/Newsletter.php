@@ -44,16 +44,30 @@ class Newsletter {
   }
 
   public function delete(){
-    $query = 'DELETE FROM ' . $this->table . ' WHERE id=:id';
+    if(!empty($this->id) && $this->id != "null"){
+      $query = 'DELETE FROM ' . $this->table . ' WHERE id=:id';
 
-    $stmt = $this->conn->prepare($query);
-
-    if($stmt->execute(array(
-      'id' => $this->id
-    ))){
-      return true;
+      $stmt = $this->conn->prepare($query);
+  
+      if($stmt->execute(array(
+        'id' => $this->id
+      ))){
+        return true;
+      }else{
+        return false;
+      }
     }else{
-      return false;
+    $query = 'DELETE FROM ' . $this->table . ' WHERE email=:email';
+
+      $stmt = $this->conn->prepare($query);
+  
+      if($stmt->execute(array(
+        'email' => $this->email
+      ))){
+        return true;
+      }else{
+        return false;
+      }
     }
   }
 }

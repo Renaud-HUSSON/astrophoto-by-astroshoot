@@ -21,7 +21,7 @@ $db = $database->connect();
 $newsletter = new Newsletter($db);
 
 //Assign newsletter propertie if param is valid
-$newsletter->email = validate_param($_POST['newsletter-email']);
+$newsletter->email = validate_param($_POST['newsletter_email']);
 
 //Verify that the user isn't already subscribed to to newsletter
 if($newsletter->read_single()->rowCount() == 0){

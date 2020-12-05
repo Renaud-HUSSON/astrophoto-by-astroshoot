@@ -32,6 +32,8 @@ $image->infobox = $_POST['infobox'];
 if(image_upload($_FILES['image'], $image->categorie, $image)){
   //Try to create a thumbnail of the image
   if(image_resize($image->src)){
+    //Deletes ../ from the path
+    $image->src = preg_replace('/.\.\//', "", $image->src);
     if($image->create()){
       echo json_encode(array('success' => 'L\'image a bien été ajoutée !'));
     }else{

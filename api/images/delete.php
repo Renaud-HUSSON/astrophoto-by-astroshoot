@@ -36,7 +36,7 @@ if($image_data = $db->query($delete_query)){
     $path = $image_delete['src'];
     $thumbnail_path = preg_replace("/(.*)([.](png|jpg|jpeg))/", "$1-thumbnail$2", $path);
     //Try to delete both image and thumbnail
-    if(!(unlink($image_delete['src']) && unlink($thumbnail_path))){
+    if(!(unlink($_SERVER['DOCUMENT_ROOT'] . '/' . $image_delete['src']) && unlink($_SERVER['DOCUMENT_ROOT'] . '/' . $thumbnail_path))){
       HTTPStatus(500);
       echo json_encode(array('error' => 'L\'image n\'a pas pu être supprimée'));
       die();

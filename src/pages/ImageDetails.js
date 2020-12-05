@@ -9,6 +9,8 @@ import { useState } from 'react'
 //Custom Hook to fetch data from an URL
 import useFetchData from '../components/shared/Hooks/useFetchData'
 import { useParams } from "react-router-dom"
+//React Helmet
+import { Helmet } from 'react-helmet-async'
 
 const ImageDetails = () => {
   const params = useParams()
@@ -19,7 +21,7 @@ const ImageDetails = () => {
   const [modalOpened, setModalOpened] = useState(false)
 
   const cancelClick = (e) => {
-    e.stopPropagation()
+    e.stopPropagation()   
   }
 
   const openModal = () => {
@@ -30,6 +32,10 @@ const ImageDetails = () => {
 
   return !imageData[1] 
   ? <motion.div variants={pageAnimation} animate="visible" initial="hidden" exit="exit" className="image-details">
+    <Helmet>
+      <title>{image.titre}</title>
+      <meta name="description" content={`Détails de ma photo suivante: ${image.titre}`}/>
+    </Helmet>
     <h1>{image.titre}</h1>
     <div className="image-container">
       <div className="image">

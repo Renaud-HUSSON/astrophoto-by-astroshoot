@@ -1,11 +1,17 @@
-import { motion } from "framer-motion"
+//React
 import { useContext, useEffect } from "react"
 import { useState } from "react"
-import { fadeIn } from "../animations/fade"
-import { AuthContext } from "../components/shared/Context/AuthContext"
+//Components
 import SimpleForm from "../components/shared/Forms/SimpleForm"
 import SubmitButton from "../components/shared/Forms/SubmitButton"
 import TextInput from "../components/shared/Forms/TextInput"
+//Animations
+import { fadeIn } from "../animations/fade"
+import { motion } from "framer-motion"
+//Context
+import { AuthContext } from "../components/shared/Context/AuthContext"
+//React Helmet
+import { Helmet } from "react-helmet-async"
 
 const Login = () => {
   const [data, setData] = useState({})
@@ -32,6 +38,9 @@ const Login = () => {
   }, [data])
 
   return <motion.div variants={pageTransition} animate="visible" initial="hidden" exit="exit">
+    <Helmet>
+      <title>Login</title>
+    </Helmet>
     <SimpleForm className="login-form">
       <TextInput onChange={handleChange} label="Nom d'utilisateur" name="username"/>
       <TextInput onChange={handleChange} label="Mot de passe" name="password" type="password"/>

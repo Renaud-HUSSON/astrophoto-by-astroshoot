@@ -3,6 +3,8 @@ import { useState } from "react"
 //Animations
 import {motion} from 'framer-motion'
 import {fadeIn} from '../animations/fade'
+//React Helmet
+import { Helmet } from "react-helmet-async"
 
 const Calcul = () => {
   const pageTransition = fadeIn()
@@ -18,6 +20,10 @@ const Calcul = () => {
   const [nbpy, setnbpy]= useState(1080)
 
   return <motion.div variants={pageTransition} animate="visible" initial="hidden" exit="exit" className="calcul-container">
+    <Helmet>
+      <title>Calculs</title>
+      <meta name="description" content="Page permettant de calculer le zoom, le champ de vision etc... du télescope "/>
+    </Helmet>
     <div className="calcul-write">
       <h1>Calculs</h1>
       <div className="input-container">

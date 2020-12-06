@@ -9,6 +9,7 @@ import { fadeIn } from '../animations/fade'
 import { useContext } from 'react'
 import NotFound from '../components/shared/NotFound'
 import {AuthContext} from '../components/shared/Context/AuthContext'
+import { Helmet } from 'react-helmet-async'
 
 const Admin = () => {
   const pageTransition = fadeIn()
@@ -17,6 +18,9 @@ const Admin = () => {
 
   return auth 
   ?<motion.div variants={pageTransition} animate="visible" initial="hidden" exit="exit" className="Admin">
+    <Helmet>
+      <title>Admin</title>
+    </Helmet>
     <div className="admin-nav">
       <h1>Admin</h1>
       <AdminNav />

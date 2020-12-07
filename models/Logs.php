@@ -15,7 +15,7 @@ class Logs {
   }
 
   public function read(){
-    $query = 'SELECT * FROM ' . $this->table . ' ORDER BY DESC LIMIT 0, 100';
+    $query = 'SELECT * FROM ' . $this->table . ' ORDER BY id DESC LIMIT 0, 100';
 
     return $this->conn->query($query);
   }
@@ -26,7 +26,7 @@ class Logs {
     $stmt = $this->conn->prepare($query);
 
     if($stmt->execute(array(
-      'id' => $this->id,
+      'ip' => $this->ip,
       'username' => $this->username
     ))){
       return true;

@@ -9,7 +9,7 @@ import { FlashProvider } from './components/shared/Context/FlashContext'
 //Import style
 import './styles/app.scss'
 //Import react helmet
-import {Helmet, HelmetProvider} from 'react-helmet-async'
+import {HelmetProvider} from 'react-helmet-async'
 
 function App() {
   return (

@@ -15,9 +15,13 @@ const Grid = () => {
   return !apiDatas[1] 
   ? <div>
       <h1>{section.toUpperCase()}</h1>
-      <div className="create-button-container">
-        <Link to={`/admin/${section}/create`} className="create-button">Créer</Link>
-      </div>
+      {
+        section !== 'logs'
+        ?<div className="create-button-container">
+          <Link to={`/admin/${section}/create`} className="create-button">Créer</Link>
+        </div>
+        :<></>
+      }
       <GridTable data={data} section={section}/>
   </div>
   : <Loading />

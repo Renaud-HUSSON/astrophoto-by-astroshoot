@@ -8,6 +8,7 @@ const AdminNav = () => {
     <Link to="/admin/materiel"><li>MATERIEL</li></Link>
     <Link to="/admin/newsletter"><li>NEWSLETTER</li></Link>
     <Link to="/admin/carousel_images"><li>CAROUSEL</li></Link>
+    <Link to="/admin/logs"><li>LOGS</li></Link>
   </ul>
 }
 

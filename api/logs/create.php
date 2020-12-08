@@ -23,16 +23,17 @@ $log = new Logs($db);
 
 
 //Verify there is 10 parmeters
-if(sizeof($_POST) != 2){
+if(sizeof($_POST) != 3){
   HTTPStatus(400);
   echo json_encode(array(
-    'error' => 'The API requires 2 parameters'
+    'error' => 'The API requires 3 parameters'
   ));
   die();
 }
 
 $log->ip = isset($_POST['ip']) ? $_POST['ip'] : '';
 $log->username = isset($_POST['username']) ? $_POST['username'] : '';
+$log->success = isset($_POST['success']) ? $_POST['success'] : '';
 
 try{
   $log->create();

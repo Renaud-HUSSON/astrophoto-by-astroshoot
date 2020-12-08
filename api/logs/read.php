@@ -31,7 +31,8 @@ if($data->rowCount() != 0){
     $log_item = array(
       'id' => $id,
       'ip' => $ip,
-      'username' => $username
+      'username' => $username,
+      'success' => $success
     );
     
     array_push($log_array['data'], $log_item);

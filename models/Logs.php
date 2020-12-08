@@ -9,6 +9,7 @@ class Logs {
   public $id;
   public $ip;
   public $username;
+  public $success;
 
   public function __construct($db){
     $this->conn = $db;
@@ -21,13 +22,14 @@ class Logs {
   }
 
   public function create(){
-    $query = 'INSERT INTO ' . $this->table . ' (ip, username) VALUES (:ip, :username)';
+    $query = 'INSERT INTO ' . $this->table . ' (ip, username, success) VALUES (:ip, :username, :success)';
 
     $stmt = $this->conn->prepare($query);
-
+    
     if($stmt->execute(array(
       'ip' => $this->ip,
-      'username' => $this->username
+      'username' => $this->username,
+      'success' => $this->success
     ))){
       return true;
     }else{

@@ -6,9 +6,9 @@ header('Access-Control-Allow-Origin: ' . URL);
 header('Content-Type: application/json');
 
 //Includes
-include_once '../../config/Database.php';
-include_once '../../utils/HTTPStatus.php';
-include_once '../../models/Category.php';
+include_once __DIR__ . '/../../config/Database.php';
+include_once __DIR__ . '/../../utils/HTTPStatus.php';
+include_once __DIR__ . '/../../models/Category.php';
 
 //Error if there is params
 if(!empty($_GET)){

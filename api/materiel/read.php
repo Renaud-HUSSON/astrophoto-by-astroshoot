@@ -6,10 +6,10 @@ header('Access-Control-Allow-Origin: ' . URL);
 header('Content-Type: application/json');
 
 //Includes
-include_once '../../config/Database.php';
-include_once '../../models/Materiel.php';
-include_once '../../utils/HTTPStatus.php';
-include_once '../../utils/validate_param.php';
+include_once __DIR__ . '/../../config/Database.php';
+include_once __DIR__ . '/../../models/Materiel.php';
+include_once __DIR__ . '/../../utils/HTTPStatus.php';
+include_once __DIR__ . '/../../utils/validate_param.php';
 
 //Instantiate DB & connect
 $database = new Database();

@@ -8,10 +8,10 @@ header('Access-Control-Allow-Method: DELETE');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
 //Includes
-include_once '../../config/Database.php';
-include_once '../../models/Category.php';
-include_once '../../utils/HTTPStatus.php';
-include_once '../../utils/validate_param.php';
+include_once __DIR__ . '/../../config/Database.php';
+include_once __DIR__ . '/../../models/Category.php';
+include_once __DIR__ . '/../../utils/HTTPStatus.php';
+include_once __DIR__ . '/../../utils/validate_param.php';
 
 //Instantiate DB & connect
 $database = new Database();

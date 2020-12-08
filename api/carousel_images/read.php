@@ -5,9 +5,9 @@ include_once(__DIR__ . "/../../utils/variables.php");
 header('Access-Control-Allow-Origin: ' . URL);
 header('Content-Type: application/json');
 
-include_once '../../models/CarouselImage.php';
-include_once '../../utils/HTTPStatus.php';
-include_once '../../config/Database.php';
+include_once __DIR__ . '/../../models/CarouselImage.php';
+include_once __DIR__ . '/../../utils/HTTPStatus.php';
+include_once __DIR__ . '/../../config/Database.php';
 
 //Instantiate DB & connect
 $database = new Database();

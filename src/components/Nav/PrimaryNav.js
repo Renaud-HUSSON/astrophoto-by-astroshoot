@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import {Link} from 'react-router-dom'
-import useWindowSize from '../shared/Hooks/useWindowSize'
+import useWindowSize from '../shared/Hooks/UseWindowSize'
 import icon from '../../images/icon.png'
 import {AuthContext} from '../shared/Context/AuthContext'
 
-const PrimaryNav = React.memo(({handleNav, primaryNav, setPrimaryNav, closeNav}) => {
+const PrimaryNav = React.memo(({handleNav, primaryNav, setPrimaryNav}) => {
   const [auth] = useContext(AuthContext)
 
   //Window width, updates whenever the window resizes

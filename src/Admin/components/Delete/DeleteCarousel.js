@@ -15,7 +15,7 @@ const DeleteCarousel = ({section, id}) => {
       <img src={`https://astrophoto-amateur.fr/${carousel.src}`} alt={carousel.titre}/>
       <div className="action-buttons">
         <Link to={`/admin/${section}`}><button className="cancel-delete">Annuler</button></Link>
-        <SubmitDeleteButton section={section} id={id}/>
+        <SubmitDeleteButton id={id}/>
       </div>
     </div>
   </>

@@ -14,7 +14,7 @@ const DeleteNewsletter = ({section, id}) => {
       <p>{newsletter.email}</p>
       <div className="action-buttons">
         <Link to={`/admin/${section}`}><button className="cancel-delete">Annuler</button></Link>
-        <SubmitDeleteButton section={section} id={id}/>
+        <SubmitDeleteButton d={id}/>
       </div>
     </div>
   </>

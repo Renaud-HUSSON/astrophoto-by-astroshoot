@@ -16,7 +16,7 @@ const DeleteImage = ({section, id}) => {
       <img src={`https://astrophoto-amateur.fr/${imageData.src}`} alt={imageData.titre}/>
       <div className="action-buttons">
         <Link to={`/admin/${section}`}><button className="cancel-delete">Annuler</button></Link>
-        <SubmitDeleteButton section={section} id={id}/>
+        <SubmitDeleteButton section={image.categorie} id={id}/>
       </div>
     </div>
   </>

@@ -35,8 +35,8 @@ const SubmitButton = ({data, section, mode, succeed = () => '', correct=true, re
     const json = await query.json()
     setLoading(false)
     setFlash({active: true, type:Object.keys(json)[0], message: json[Object.keys(json)[0]]})
-    setRedirect(true)
     if(json.hasOwnProperty('success')){
+      setRedirect(true)
       if(typeof(succeed) === 'function'){
         succeed()
       }

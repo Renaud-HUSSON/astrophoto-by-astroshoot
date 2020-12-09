@@ -14,7 +14,7 @@ const DeleteCategorie = ({section, id}) => {
       <p>{categorie.titre}</p>
       <div className="action-buttons">
         <Link to={`/admin/${section}`}><button className="cancel-delete">Annuler</button></Link>
-        <SubmitDeleteButton id={id}/>
+        <SubmitDeleteButton section={section} id={id}/>
       </div>
     </div>
   </>

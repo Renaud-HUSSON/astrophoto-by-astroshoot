@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import { Redirect } from "react-router-dom"
 import { FlashContext } from "../Context/FlashContext"
 
-const SubmitDeleteButton = ({section, id}) => {
+const SubmitDeleteButton = ({section, id, categorie=""}) => {
   const [loading, setLoading] = useState(false)
   const [redirect, setRedirect] = useState(false)
   const [, setFlash] = useContext(FlashContext)
@@ -11,7 +11,7 @@ const SubmitDeleteButton = ({section, id}) => {
     e.preventDefault()
     setLoading(true)
 
-    const update = await fetch(`${process.env.REACT_APP_URL}api/${section}/delete.php?id=${id}&categorie=${section}`)
+    const update = await fetch(`${process.env.REACT_APP_URL}api/${section}/delete.php?id=${id}${categorie !== '' ? `&categorie=${categorie}` : ''}`)
 
     const json = await update.json()
     setLoading(false)

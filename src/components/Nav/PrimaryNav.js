@@ -12,6 +12,11 @@ const PrimaryNav = React.memo(({handleNav, primaryNav, setPrimaryNav}) => {
 
   //Toggles the primary nav on small devices
   const handlePrimaryNav = () => {
+    if(document.body.getAttribute("noscroll")){
+      document.body.removeAttribute("noscroll")
+    }else{
+      document.body.setAttribute("noscroll", true);
+    }
     setPrimaryNav(nav => !nav)
   }
 

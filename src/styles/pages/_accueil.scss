@@ -71,6 +71,7 @@ $image-carousel-width-sm: 90vw;
   }
   
   .card-carousel-container {
+    min-height: 150px;
     height: 20vh;
     width: 80vw;
     position: relative;
@@ -83,10 +84,11 @@ $image-carousel-width-sm: 90vw;
         transition: initial;
         margin: 0rem 1rem;
         .card {
+          min-height: 150px;
           height: 20vh;
           .card-header {
-            height: 15vh;
-            width: calc((16/9)*15vh);
+            height: clamp(110px, 15vh, 1000px);
+            width: calc((16/9)*clamp(110px, 15vh, 1000px));
             
             img {
               width: 100%;
@@ -104,6 +106,9 @@ $image-carousel-width-sm: 90vw;
             background: $black;
             color: white;
             transition: 0.3s;
+            font-size: clamp(14px, 2vh, 16px);
+            padding: 1rem;
+            border: 1px solid $black;
           }
   
           a {

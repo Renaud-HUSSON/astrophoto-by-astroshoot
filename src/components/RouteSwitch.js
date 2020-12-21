@@ -15,8 +15,20 @@ import NotFound from "./shared/NotFound"
 import { AnimatePresence } from "framer-motion"
 import { useEffect } from "react"
 import Newsletter from "../pages/Newsletter"
+//Google analytics
+import ReactGA from 'react-ga';
 
 const RouteSwitch = () => {
+  ReactGA.initialize(process.env.REACT_APP_GA, {
+    debug: false,
+    titleCase: false,
+    gaOptions: {
+      userId: 123,
+      siteSpeedSampleRate: 100
+    }
+  });
+  ReactGA.pageview(window.location.pathname + window.location.search);
+  
   const location = useLocation()
 
   useEffect(() => {

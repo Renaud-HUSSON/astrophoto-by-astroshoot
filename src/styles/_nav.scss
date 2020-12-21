@@ -3,13 +3,14 @@ nav {
   .primary-nav {
     padding: 0rem 0.5rem;
     width: 100%;
-    height: $nav-height;
+    height: clamp(45px, $nav-height, $nav-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: rgba($color: $black, $alpha: 0.25) 0px 3px 25px;
   
     .left-side {
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -71,7 +72,7 @@ nav {
 
     .header {
       margin: 0rem 1.5rem;
-      height: $nav-height + 2vh;
+      height: 9vh;
       display: flex;
       align-items: center;
 
@@ -124,8 +125,8 @@ nav {
     cursor: pointer;
     
     div {
-      width: 30px;
-      height: 5px;
+      width: 2rem;
+      height: 4px;
       background: $blue;
       margin: 0.15rem;
     }
@@ -198,7 +199,6 @@ nav {
       flex-direction: column;
 
       .left-side {
-        height: $nav-height;
         width: 100%;
         justify-content: flex-start;
         z-index: 10;
@@ -224,7 +224,7 @@ nav {
         background: $white;
 
         ul {
-          padding-top: $nav-height;
+          padding-top: $nav-height + 1;
           flex-direction: column;
 
           li {

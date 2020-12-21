@@ -30,6 +30,13 @@ h1, h2, h3, h4, p {
   color: $black;
 }
 
+@media screen and (max-width: 768px){
+  body[noscroll] {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
 // import of partials
 @import './nav';
 @import './pages/accueil';

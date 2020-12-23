@@ -22,7 +22,7 @@ const CreateCarousel = ({section}) => {
   }
 
   return <>
-    <SelectInput onChange={handleChange} value="" name="image" label="Image" section="images" optionValue="id" optionTitle="titre"/>
+    <SelectInput onChange={handleChange} value="" name="image" label="Image" section="images" optionValue="id" optionTitle="id"/>
     <SubmitButton correct={correct} section={section} data={data} mode="create"/>
   </>
 }

@@ -14,11 +14,13 @@
 }
 
 .flash-success {
-  background: rgba(40, 170, 40, 0.9);    
+  background: #d4edda;  
+  color: #155724;
 }
 
 .flash-error {
-  background: rgba(246, 60, 60, 0.9);  
+  background: #f8d7da;
+  color: #721c24;
 }
 
 @media screen and (max-width: 768px){

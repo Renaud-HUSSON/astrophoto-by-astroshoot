@@ -25,7 +25,7 @@ const UpdateCarousel = ({section, id}) => {
   return !carouselData[1] 
   ?<>
     <TextInput onChange={handleChange} label="ID" value={carousel.id} name="id" disabled/>
-    <SelectInput onChange={handleChange} label="Image" name="image" value={carousel.image} section="images" fichier="read" optionValue="id" optionTitle="titre"/>
+    <SelectInput onChange={handleChange} label="Image" name="image" value={carousel.image} section="images" fichier="read" optionValue="id" optionTitle="id"/>
     <SubmitButton section={section} data={data} mode="update"/>
   </>
   : <Loading />

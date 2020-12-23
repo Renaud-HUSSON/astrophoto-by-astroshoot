@@ -10,6 +10,7 @@ import { useContext } from 'react'
 import NotFound from '../components/shared/NotFound'
 import {AuthContext} from '../components/shared/Context/AuthContext'
 import { Helmet } from 'react-helmet-async'
+import Sitemap from './components/Sitemap'
 
 const Admin = () => {
   const pageTransition = fadeIn()
@@ -27,6 +28,7 @@ const Admin = () => {
     </div>
     <div className="datas">
       <Switch>
+        <Route path="/admin/sitemap" component={Sitemap} exact/>
         <Route exact path="/admin/:section" component={Grid} />
         <Route path="/admin/:section/update/:id" component={Update} />
         <Route path="/admin/:section/create" component={Create} />

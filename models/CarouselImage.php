@@ -48,12 +48,13 @@ class CarouselImage {
   }
 
   public function update() {
-    $query = 'UPDATE ' . $this->table . ' SET image=:image';
+    $query = 'UPDATE ' . $this->table . ' SET image=:image WHERE id=:id';
 
     $req = $this->conn->prepare($query);
 
     if($req->execute(array(
-      'image' => $this->image
+      'image' => $this->image,
+      'id' => $this->id
     ))){
       return true;
     }else{

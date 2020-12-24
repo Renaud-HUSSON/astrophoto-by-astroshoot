@@ -24,6 +24,9 @@ const Nav = () => {
 
   useEffect(() => {
     closeNav()
+    if(document.body.getAttribute("noscroll")){
+      document.body.removeAttribute("noscroll")
+    }
   }, [location])
 
   return <nav>

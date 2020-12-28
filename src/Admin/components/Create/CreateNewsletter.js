@@ -25,7 +25,7 @@ const CreateCategorie = ({section}) => {
 
   return <>
     <TextInput onChange={handleChange} label="Sujet" name="subject"/>
-    <TextInput onChange={handleChange} label="Message" name="message" />
+    <TextInput multiline={true} onChange={handleChange} label="Message" name="message" />
     <SubmitButton correct={correct} section={section} data={data} mode="send"/>
   </>
 }

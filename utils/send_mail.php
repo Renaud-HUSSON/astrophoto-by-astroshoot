@@ -39,8 +39,8 @@ function send_mail($message, $destinataires, $subject){
       // Content
       $mail->isHTML(true);
       $mail->Subject = $subject;
-      $mail->Body    = $message;
-      $mail->AltBody = htmlspecialchars($message);
+      $mail->Body    = nl2br($message);
+      $mail->AltBody = nl2br($message);
   
       if($mail->send()){
         echo json_encode(array(

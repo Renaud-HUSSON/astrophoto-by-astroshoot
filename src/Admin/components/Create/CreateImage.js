@@ -41,8 +41,8 @@ const CreateImage = ({section}) => {
     <SelectInput onChange={handleChange} label="Catégorie" name="categorie" section='categories' optionTitle="titre" optionValue='nom'/>
     <FileInput onChange={handleFileUpload} label="Sélectionnez une image" name="image" value={data.image['name']}/>
     <SelectInput onChange={handleChange} label="Infobox" name="infobox" section='infobox' optionTitle="nom" optionValue='nom'/>
-    <TextInput onChange={handleChange} label="Détails" name="details"/>
-    <TextInput onChange={handleChange} label="Description" name="description"/>
+    <TextInput multiline={true} onChange={handleChange} label="Détails" name="details"/>
+    <TextInput multiline={true} onChange={handleChange} label="Description" name="description"/>
     <SubmitButton data={data} section={section} mode="create" correct={correct}/>
   </>
 }

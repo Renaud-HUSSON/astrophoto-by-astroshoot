@@ -65,6 +65,27 @@ footer {
       a {
         text-decoration: none;
       }
+      .widget {
+        border-radius: 15px;
+        display: flex;
+        background: #5F7FFF;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        
+        svg {
+          margin-right: 1rem;
+        }
+        
+        p {
+          color: white;
+          font-size: 2rem;
+          font-family: 'Cookie';
+        }
+      }
     }
   }
 }

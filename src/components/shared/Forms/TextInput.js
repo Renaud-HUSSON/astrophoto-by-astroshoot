@@ -22,7 +22,9 @@ const TextInput = ({label, value, name, disabled = false, multiline = false, onC
   return <div className="input text-input">
     <label htmlFor={name}>{label}</label><br/>
      {multiline 
-     ?<textarea onChange={handleTextareaChange} ref={area} id={name} name={name} defaultValue={value} disabled={disabled ? true : false} />
+     ?<pre>
+      <textarea onChange={handleTextareaChange} ref={area} id={name} name={name} defaultValue={value} disabled={disabled ? true : false} />
+     </pre>
      :<input placeholder={placeholder} onChange={onChange} type={type} id={name} name={name} defaultValue={value} disabled={disabled ? true : false} />
     }
   </div>

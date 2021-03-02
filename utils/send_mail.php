@@ -38,6 +38,7 @@ function send_mail($message, $destinataires, $subject){
   
       // Content
       $mail->isHTML(true);
+      $mail->CharSet = "UTF-8"; 
       $mail->Subject = $subject;
       $mail->Body    = nl2br($message);
       $mail->AltBody = nl2br($message);
@@ -53,7 +54,7 @@ function send_mail($message, $destinataires, $subject){
       }
   } catch (Exception $e) {
       echo json_encode(array(
-        'error' => 'Message could not be sent. Mailer Error: {$mail->ErrorInfo}'
+        'error' => 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo
       ));
   }
 }

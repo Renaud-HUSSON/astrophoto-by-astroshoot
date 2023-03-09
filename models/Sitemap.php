@@ -8,7 +8,7 @@ include_once __DIR__ . "/../utils/HTTPStatus.php";
 class Sitemap {
   public function generate(){
     //Site url
-    $url = "https://astrophoto-amateur.fr/";
+    $url = "https://astrophoto-amateur.com/";
 
     //Images variable
     $image_priority = 0.7;
@@ -36,25 +36,25 @@ class Sitemap {
           http://www.sitemaps.org/schemas/sitemap/0.9
           http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-      <loc>https://astrophoto-amateur.fr/</loc>
+      <loc>https://astrophoto-amateur.com/</loc>
       <lastmod>2020-08-15T21:30:46+00:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>1.0000</priority>
     </url>
     <url>
-      <loc>https://astrophoto-amateur.fr/materiel</loc>
+      <loc>https://astrophoto-amateur.com/materiel</loc>
       <lastmod>2020-08-15T21:30:46+00:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7000</priority>
     </url>
     <url>
-      <loc>https://astrophoto-amateur.fr/informations</loc>
+      <loc>https://astrophoto-amateur.com/informations</loc>
       <lastmod>2020-08-15T21:30:46+00:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7000</priority>
     </url>
     <url>
-      <loc>https://astrophoto-amateur.fr/calculs</loc>
+      <loc>https://astrophoto-amateur.com/calculs</loc>
       <lastmod>2020-08-15T21:30:46+00:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8000</priority>

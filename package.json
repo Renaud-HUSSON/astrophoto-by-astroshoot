@@ -12,7 +12,6 @@
     "@testing-library/user-event": "^12.2.2",
     "dotenv": "^8.2.0",
     "framer-motion": "^2.9.4",
-    "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-ga": "^3.3.0",
@@ -20,6 +19,7 @@
     "react-indiana-drag-scroll": "^1.8.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "sass": "^1.58.3",
     "uuid": "^8.3.1",
     "web-vitals": "^0.2.4"
   },
@@ -47,5 +47,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://beta.astrophoto-amateur.fr/"
+  "homepage": "https://astrophoto-amateur.com/"
 }
